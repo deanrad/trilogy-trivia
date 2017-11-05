@@ -6,6 +6,11 @@ import Student from './components/Student';
 import Presenter from './components/Presenter';
 import Remote from './components/Remote';
 import registerServiceWorker from './registerServiceWorker';
+import io from 'socket.io-client';
+
+const url = 'http://localhost:3001'; // TODO switch this for prod
+const socket = io(url);
+window.socket = socket;
 
 const RoutedApp = () => (
   <Router>
