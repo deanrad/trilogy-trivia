@@ -11,7 +11,7 @@ class App extends Component {
           <h2>Welcome to Trilobytes!</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          This will be the player screen, which will host the Q/A component.
         </p>
       </div>
     );
