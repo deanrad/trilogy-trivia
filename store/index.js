@@ -10,6 +10,7 @@ const initialState = {
       'Courting sweet oblivion :)'
     ],
     answer: null,
+    revealed: false,
     responses: []
   },
   players: []
@@ -28,6 +29,14 @@ const reducer = (state, action) => {
       };
     case 'STATE_UPDATE':
       return action.payload;
+    case 'ANSWER_REVEAL':
+      return {
+        ...state,
+        round: {
+          ...state.round,
+          revealed: true
+        }
+      };
     case 'PLAYER_JOINED':
       return {
         ...state,

@@ -8,6 +8,7 @@ import Remote from './components/Remote';
 import registerServiceWorker from './registerServiceWorker';
 import io from 'socket.io-client';
 import { store } from './store/';
+import eventCreators from './store/actions';
 import { connect, Provider } from 'react-redux';
 
 const url = 'http://localhost:3001'; // TODO switch this for prod
@@ -23,7 +24,10 @@ socket.on('stateUpdate', function(state) {
 
 const cStudent = connect(state => state)(Student);
 const cPresenter = connect(state => state)(Presenter);
-const cRemote = connect(state => state)(Remote);
+const cRemote = connect(
+  state => state, // mapStateToProps
+  eventCreators(socket)
+)(Remote);
 
 const RoutedApp = () => (
   <Router>
