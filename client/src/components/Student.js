@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './Student.css';
 
 class App extends Component {
+  handleAnswer = choice => {
+    this.props.answerQuestion(choice)
+  };
+
   render() {
     return (
       <div className="App">
@@ -9,9 +13,20 @@ class App extends Component {
           <img src="/img/trilobyte.jpg" className="App-logo" alt="logo" />
           <h2>Welcome to Trilobytes!</h2>
         </div>
-        <p className="App-intro">
-          This will be the player screen, which will host the Q/A component.
-        </p>
+        <div className="App-intro">
+          <h1>{this.props.round.question}</h1>
+          {this.props.round.choices.map(choice => (
+            <div key={choice}>
+              <button
+                onClick={() => {
+                  this.handleAnswer(choice);
+                }}
+              >
+                {choice}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

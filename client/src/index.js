@@ -22,12 +22,11 @@ socket.on('stateUpdate', function(state) {
   });
 });
 
-const cStudent = connect(state => state)(Student);
-const cPresenter = connect(state => state)(Presenter);
-const cRemote = connect(
-  state => state, // mapStateToProps
-  eventCreators(socket)
-)(Remote);
+const justState = state => state;
+const dispatchOverSocket = eventCreators(socket);
+const cStudent = connect(justState, dispatchOverSocket)(Student);
+const cPresenter = connect(justState, dispatchOverSocket)(Presenter);
+const cRemote = connect(justState, dispatchOverSocket)(Remote);
 
 const RoutedApp = () => (
   <Router>
