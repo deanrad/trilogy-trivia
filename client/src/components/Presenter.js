@@ -46,12 +46,12 @@ const RoundView = ({ round }) => (
   </div>
 );
 
-export default ({ players, round }) => (
+export default props => (
   <div>
     {/* TODO show SignIn before a round's begun,
             RoundView when the round's in progress
      */}
-    <SignIn players={players} />
-    <RoundView round={round} />
+    <SignIn {...props} />
+    <RoundView {...props} />
   </div>
 );

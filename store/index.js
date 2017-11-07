@@ -14,7 +14,8 @@ const initialState = {
   },
   players: []
 };
-// a function of state and action, which always returns state
+
+// The heart of Rock & Roll right here, the reducer!
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ANSWER_QUESTION':
