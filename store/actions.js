@@ -1,3 +1,6 @@
+// const store = require('./index').store;
+const questions = require('../data/questions.json');
+
 // mapDispatchToProps
 const eventCreators = socket => (/* dispatch */) => ({
   revealAnswer: () => {
@@ -15,20 +18,10 @@ const eventCreators = socket => (/* dispatch */) => ({
     });
   },
   startGame: () => {
+    // TODO and the questions after the first
     socket.emit('action', {
       type: 'ADVANCE_QUESTION',
-      payload: {
-        question: 'Whatcha doin?',
-        choices: [
-          'Uh, nuthin',
-          'Chillaxin',
-          'Worrying about climate change',
-          'Courting sweet oblivion :)'
-        ],
-        answer: null,
-        revealed: false,
-        responses: []
-      }
+      payload: Object.assign(questions[0], { responses: [] })
     });
   }
 });

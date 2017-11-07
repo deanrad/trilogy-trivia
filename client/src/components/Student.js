@@ -42,9 +42,10 @@ class App extends Component {
     if (!this.props.round) {
       return <JoinForm />;
     }
+
     return (
       <div className="App-intro">
-        <h1>{this.props.round.question}</h1>
+        <h1>{this.props.round.prompt}</h1>
         {this.props.round.choices.map(choice => (
           <div key={choice}>
             <button

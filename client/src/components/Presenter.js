@@ -16,9 +16,9 @@ const SignIn = ({ players }) => (
 const RoundView = ({ round }) => (
   <div>
     <h1>{round.responses.length} Responses Received</h1>
-    <h1>{round.question}</h1>
+    <h1>{round.prompt}</h1>
     {round.choices.map(choice => (
-      <div key={choice}>
+      <div key={choice} className={choice===round.answer && round.revealed ? 'correct-answer' : '' }>
         <button>{choice}</button>
       </div>
     ))}

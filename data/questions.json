@@ -1,0 +1,151 @@
+[
+    {
+        "id": 2,
+        "prompt": "JavaScript's creator spent this long creating it?",
+        "choices": [
+            "10 hours",
+            "10 days",
+            "10 weeks",
+            "10 months"
+        ],
+        "answer": "10 days",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "prompt": "The Express route /api/:table/:id? does NOT match?",
+        "choices": [
+            "/api/users/",
+            "/api/table/id/1",
+            "/api/table/2"
+        ],
+        "answer": "/api/table/id/1",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "prompt": "In a database with Parent/Child records, the record with the primary key is pointed to by the record with the foreign key?",
+        "choices": [
+            "true",
+            "false"
+        ],
+        "answer": "true",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "prompt": "All of these are examples of ORMs except?",
+        "choices": [
+            "Express",
+            "Sequelize",
+            "A custom library taking callbacks",
+            "Mongoose"
+        ],
+        "answer": "Express",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "prompt": "A package.json gains a dependency via?",
+        "choices": [
+            "npm init -y",
+            "npm install express",
+            "npm install -S express",
+            "npm blame"
+        ],
+        "answer": "npm install -S express",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "prompt": "Which of these REST actions is *mismatched* to its CRUD verb?",
+        "choices": [
+            "CREATE - INSERT",
+            "GET - SELECT",
+            "PATCH - UPDATE",
+            "DESTROY - DELETE"
+        ],
+        "answer": "CREATE - INSERT",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "prompt": "All of these are reasons to render HTML on the server with Handlebars EXCEPT?",
+        "choices": [
+            "Search Engines (Google)",
+            "Requires higher-powered device to render the page",
+            "Faster initial load of content",
+            "Requires lower-powered device to render the page"
+        ],
+        "answer": "Requires higher-powered device to render the page",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "prompt": "Handlebars triple-mustache will allow HTML from your database into the page as-is?",
+        "choices": [
+            "Yay! Just what I need!",
+            "Yay! (Better look out for malicious user content)",
+            "False"
+        ],
+        "answer": "Yay! (Better look out for malicious user content)",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "prompt": "Heroku will configure your app's database string via?",
+        "choices": [
+            "process.argv[2]",
+            "process.env.PORT",
+            "process.argv.JAWSDB_URL",
+            "process.env.JAWSDB_URL"
+        ],
+        "answer": "process.env.JAWSDB_URL",
+        "links": [
+            {
+                "href": "www.google.com",
+                "text": "LMGTFY"
+            }
+        ]
+    }
+]

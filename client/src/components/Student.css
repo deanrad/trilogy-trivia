@@ -24,3 +24,10 @@
 .App-intro {
   font-size: large;
 }
+
+.correct-answer {
+  border: solid green 2px;
+}
+.wrong-answer {
+  border: solid red 2px;
+}
