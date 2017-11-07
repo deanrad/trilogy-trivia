@@ -6,6 +6,10 @@ const http = require('http').Server(app);
 const io = require('socket.io').listen(http);
 
 const store = require('./store/').store;
+const sendState = () => {
+  const state = store.getState();
+  io.emit('stateUpdate', state);
+};
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
@@ -25,20 +29,23 @@ http.listen(PORT, function() {
 io.on('connection', function(client) {
   console.log('Got a client connection!');
 
+  // Tell our store someone joined
+  store.dispatch({ type: 'PLAYER_JOINED', payload: { name: 'TODO' } });
+
   client.on('action', function(action) {
     console.log('Received an action:', action);
-    // TODO dispatch through redux store
     store.dispatch(action);
   });
 
   client.on('disconnect', function() {
     console.log('Client XXX signed off (TODO identify clients)');
+    store.dispatch({ type: 'PLAYER_LEFT', payload: { name: 'TODO' } });
   });
 });
 
 // Every time an action comes through, tell everyone the new state
 store.subscribe(function() {
   const state = store.getState();
-  io.emit('stateUpdate', state);
   console.log('New state:', JSON.stringify(state, null, 2));
+  sendState();
 });

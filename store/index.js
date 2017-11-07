@@ -11,20 +11,33 @@ const initialState = {
     ],
     answer: null,
     responses: []
-  }
+  },
+  players: []
 };
 // a function of state and action, which always returns state
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ANSWER_QUESTION':
       return {
+        ...state,
         round: {
           ...state.round,
           responses: [...state.round.responses, action.payload]
         }
       };
     case 'STATE_UPDATE':
-      return action.payload
+      return action.payload;
+    case 'PLAYER_JOINED':
+      return {
+        ...state,
+        players: [...state.players, action.payload]
+      };
+    case 'PLAYER_LEFT':
+      let [dropped, ...players] = state.players;
+      return {
+        ...state,
+        players
+      };
     default:
       return state;
   }

@@ -8,6 +8,7 @@ import Remote from './components/Remote';
 import registerServiceWorker from './registerServiceWorker';
 import io from 'socket.io-client';
 import { store } from './store/';
+import { connect, Provider } from 'react-redux';
 
 const url = 'http://localhost:3001'; // TODO switch this for prod
 const socket = io(url);
@@ -20,20 +21,29 @@ socket.on('stateUpdate', function(state) {
   });
 });
 
+const cStudent = connect(state => state)(Student);
+const cPresenter = connect(state => state)(Presenter);
+const cRemote = connect(state => state)(Remote);
+
 const RoutedApp = () => (
   <Router>
     <Switch>
       {/* the most common case, a student joining will be the root  */}
-      <Route exact path="/" component={Student} />
-      <Route exact path="/student" component={Student} />
-      <Route exact path="/live" component={Presenter} />
-      <Route exact path="/remote" component={Remote} />
+      <Route exact path="/" component={cStudent} />
+      <Route exact path="/student" component={cStudent} />
+      <Route exact path="/live" component={cPresenter} />
+      <Route exact path="/remote" component={cRemote} />
       <Route render={() => <h3>Not found</h3>} />
     </Switch>
   </Router>
 );
 
-ReactDOM.render(<RoutedApp />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <RoutedApp />
+  </Provider>,
+  document.getElementById('root')
+);
 if (process.env.NODE_ENV === 'production') {
   registerServiceWorker();
 }
