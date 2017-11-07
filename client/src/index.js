@@ -23,7 +23,7 @@ socket.on('stateUpdate', function(state) {
 });
 
 const justState = state => state;
-const dispatchOverSocket = eventCreators(socket);
+const dispatchOverSocket = eventCreators(socket)(store);
 const cStudent = connect(justState, dispatchOverSocket)(Student);
 const cPresenter = connect(justState, dispatchOverSocket)(Presenter);
 const cRemote = connect(justState, dispatchOverSocket)(Remote);

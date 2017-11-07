@@ -9,40 +9,29 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ANSWER_QUESTION':
-      return {
-        ...state,
-        round: {
-          ...state.round,
+      return Object.assign(state, {
+        round: Object.assign(state.round, {
           responses: [...state.round.responses, action.payload]
-        }
-      };
+        })
+      });
     case 'STATE_UPDATE':
       return action.payload;
     case 'ANSWER_REVEAL':
-      return {
-        ...state,
-        round: {
-          ...state.round,
+      return Object.assign(state, {
+        round: Object.assign(state.round, {
           revealed: true
-        }
-      };
+        })
+      });
     case 'PLAYER_JOINED':
-      return {
-        ...state,
+      return Object.assign(state, {
         players: [...state.players, action.payload]
-      };
+      });
     case 'PLAYER_LEFT':
       // eslint-disable-next-line no-unused-vars
       let [dropped, ...players] = state.players;
-      return {
-        ...state,
-        players
-      };
+      return Object.assign(state, { players });
     case 'ADVANCE_QUESTION':
-      return {
-        ...state,
-        round: action.payload
-      };
+      return Object.assign(state, { round: action.payload });
     default:
       return state;
   }
@@ -57,6 +46,9 @@ const store = devTools
   ? createStore(reducer, initialState, devTools)
   : createStore(reducer, initialState);
 
+if (typeof window !== 'undefined') {
+  window.store = store;
+}
 module.exports = {
   store
 };

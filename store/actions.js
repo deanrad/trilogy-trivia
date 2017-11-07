@@ -1,8 +1,16 @@
-// const store = require('./index').store;
 const questions = require('../data/questions.json');
 
+const nextQuestion = store => {
+  let current = store.getState().round;
+  if (!current) return questions[0];
+  let { prompt } = current || {};
+  let idx = questions.findIndex(q => q.prompt == prompt);
+  let nextIdx = idx + 1;
+  return questions[nextIdx];
+};
+
 // mapDispatchToProps
-const eventCreators = socket => (/* dispatch */) => ({
+const eventCreators = socket => store => (/* dispatch */) => ({
   revealAnswer: () => {
     socket.emit('action', {
       type: 'ANSWER_REVEAL',
@@ -17,11 +25,12 @@ const eventCreators = socket => (/* dispatch */) => ({
       }
     });
   },
-  startGame: () => {
-    // TODO and the questions after the first
+  advanceQuestion: () => {
+    let question = nextQuestion(store);
+    // TODO handle questions after the first
     socket.emit('action', {
       type: 'ADVANCE_QUESTION',
-      payload: Object.assign(questions[0], { responses: [] })
+      payload: Object.assign(question, { responses: [] })
     });
   }
 });
