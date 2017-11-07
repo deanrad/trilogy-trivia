@@ -7,10 +7,18 @@ import Presenter from './components/Presenter';
 import Remote from './components/Remote';
 import registerServiceWorker from './registerServiceWorker';
 import io from 'socket.io-client';
+import { store } from './store/';
 
 const url = 'http://localhost:3001'; // TODO switch this for prod
 const socket = io(url);
 window.socket = socket;
+
+socket.on('stateUpdate', function(state) {
+  store.dispatch({
+    type: 'STATE_UPDATE',
+    payload: state
+  });
+});
 
 const RoutedApp = () => (
   <Router>

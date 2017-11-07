@@ -23,11 +23,22 @@ const reducer = (state, action) => {
           responses: [...state.round.responses, action.payload]
         }
       };
+    case 'STATE_UPDATE':
+      return action.payload
     default:
       return state;
   }
 };
-const store = createStore(reducer, initialState);
+
+const devTools =
+  typeof window !== 'undefined' &&
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+  window.__REDUX_DEVTOOLS_EXTENSION__();
+
+const store = devTools
+  ? createStore(reducer, initialState, devTools)
+  : createStore(reducer, initialState);
+
 module.exports = {
   store
 };
