@@ -5,6 +5,8 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io').listen(http);
 
+const store = require('./store/').store;
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
@@ -25,10 +27,18 @@ io.on('connection', function(client) {
 
   client.on('action', function(action) {
     console.log('Received an action:', action);
-    client.broadcast.emit('action', action);
+    // TODO dispatch through redux store
+    store.dispatch(action);
   });
 
   client.on('disconnect', function() {
     console.log('Client XXX signed off (TODO identify clients)');
   });
+});
+
+// Every time an action comes through, tell everyone the new state
+store.subscribe(function() {
+  const state = store.getState();
+  io.emit('stateUpdate', state);
+  console.log('New state:', JSON.stringify(state, null, 2));
 });
