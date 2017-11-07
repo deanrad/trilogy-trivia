@@ -1,18 +1,7 @@
 const { createStore } = require('redux');
 
 const initialState = {
-  round: {
-    question: 'Whatcha doin?',
-    choices: [
-      'Uh, nuthin',
-      'Chillaxin',
-      'Worrying about climate change',
-      'Courting sweet oblivion :)'
-    ],
-    answer: null,
-    revealed: false,
-    responses: []
-  },
+  round: null,
   players: []
 };
 
@@ -43,10 +32,16 @@ const reducer = (state, action) => {
         players: [...state.players, action.payload]
       };
     case 'PLAYER_LEFT':
+      // eslint-disable-next-line no-unused-vars
       let [dropped, ...players] = state.players;
       return {
         ...state,
         players
+      };
+    case 'ADVANCE_QUESTION':
+      return {
+        ...state,
+        round: action.payload
       };
     default:
       return state;

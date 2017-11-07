@@ -13,6 +13,23 @@ const eventCreators = socket => (/* dispatch */) => ({
         choice
       }
     });
+  },
+  startGame: () => {
+    socket.emit('action', {
+      type: 'ADVANCE_QUESTION',
+      payload: {
+        question: 'Whatcha doin?',
+        choices: [
+          'Uh, nuthin',
+          'Chillaxin',
+          'Worrying about climate change',
+          'Courting sweet oblivion :)'
+        ],
+        answer: null,
+        revealed: false,
+        responses: []
+      }
+    });
   }
 });
 
