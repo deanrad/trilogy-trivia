@@ -11,6 +11,14 @@ body {
   border: solid red 2px;
 }
 
+button.accepted {
+  border: green solid 3px;
+}
+
+button.incorrect {
+  border: red solid 3px;
+}
+
 .response-count {
   float: right;
   font-style: oblique;

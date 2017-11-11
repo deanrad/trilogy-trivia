@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import "./Student.css"
+import VoteButton from "./VoteButton"
 
 class JoinForm extends React.Component {
   state = {
@@ -39,33 +40,41 @@ class JoinForm extends React.Component {
   }
 }
 
-class App extends Component {
+class Student extends Component {
   handleAnswer = choice => {
     this.props.answerQuestion(choice)
   }
 
   render() {
-    if (!this.props.round) {
-      return <JoinForm signIn={this.props.signIn} />
+    let { round, signIn } = this.props
+    let { responses, prompt, choices, answer, revealed } = round || {}
+    if (!round) {
+      return <JoinForm signIn={signIn} />
     }
 
+    let myResponse = responses[0] || {}
     return (
-      <div className="App-intro">
-        <h1>{this.props.round.prompt}</h1>
-        {this.props.round.choices.map(choice => (
-          <div key={choice}>
-            <button
-              onClick={() => {
-                this.handleAnswer(choice)
-              }}
-            >
-              {choice}
-            </button>
-          </div>
-        ))}
+      <div>
+        <div>Question 1</div>
+        <h2>{prompt}</h2>
+        <br />
+        <div className="voting">
+          {choices.map(choice => VoteButton({ choice, responses, revealed }))}
+        </div>
+
+        {revealed &&
+          (answer !== myResponse.choice ? (
+            <div className="answer">
+              The Answer Was:<br /> {answer}
+            </div>
+          ) : (
+            <div className="answer">
+              Wow. You're both smart, AND good-looking!
+            </div>
+          ))}
       </div>
     )
   }
 }
 
-export default App
+export default Student

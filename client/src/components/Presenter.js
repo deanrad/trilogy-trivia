@@ -2,8 +2,13 @@ import React from "react"
 
 const SignIn = ({ title, players }) => (
   <div>
-    <h2 className="game-title">{title}</h2>
-    <h1>Join Us at <span className="join-link">{document.location.href.replace(/\/\w+$/, "")}</span> !</h1>
+    <h1>
+      Join Us at{" "}
+      <span className="join-link">
+        {document.location.href.replace(/\/\w+$/, "")}
+      </span>{" "}
+      !
+    </h1>
     <h3>{Object.keys(players).length} Players Joined</h3>
     <div className="App">
       <div className="App-header">
@@ -42,11 +47,15 @@ const RoundView = ({ players, round }) => (
   </div>
 )
 
-export default props => (
-  <div>
-    {/* TODO show SignIn before a round's begun,
+export default props => {
+  let { title } = props
+  return (
+    <div>
+      <h2 className="game-title">{title}</h2>
+      {/* TODO show SignIn before a round's begun,
             RoundView when the round's in progress
      */}
-    {props.round ? <RoundView {...props} /> : <SignIn {...props} />}
-  </div>
-)
+      {props.round ? <RoundView {...props} /> : <SignIn {...props} />}
+    </div>
+  )
+}
