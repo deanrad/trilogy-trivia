@@ -17,11 +17,12 @@ const displayStyle = ({ choice, myID, responses, judged }) => {
   return myChoiceConfirmed ? "accepted" : "incorrect"
 }
 
-export default ({ choice, responses, judged, myID }) => (
+export default ({ choice, responses, judged, myID, answerQuestion }) => (
   <button
     disabled={judged}
     className={displayStyle({ choice, responses, judged, myID })}
     key={choice}
+    onClick={() => answerQuestion(choice)}
   >
     <h1>{choice}</h1>
   </button>

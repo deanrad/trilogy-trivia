@@ -46,7 +46,7 @@ class Student extends Component {
   }
 
   render() {
-    let { round, signIn } = this.props
+    let { round, signIn, answerQuestion } = this.props
     let { responses, prompt, choices, answer, revealed } = round || {}
     if (!round) {
       return <JoinForm signIn={signIn} />
@@ -59,7 +59,9 @@ class Student extends Component {
         <h2>{prompt}</h2>
         <br />
         <div className="voting">
-          {choices.map(choice => VoteButton({ choice, responses, revealed }))}
+          {choices.map(choice =>
+            VoteButton({ choice, responses, revealed, answerQuestion })
+          )}
         </div>
 
         {revealed &&
