@@ -32,7 +32,10 @@ const reducer = (state, action) => {
     case "PLAYER_JOINED":
       return Object.assign({}, state, {
         players: Object.assign(state.players, {
-          [action.payload.id]: action.payload.name
+          [action.payload.id]: {
+            name: action.payload.name,
+            points: 0
+          }
         })
       })
     case "IDENTIFY_CLIENT":
