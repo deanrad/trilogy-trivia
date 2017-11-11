@@ -6,6 +6,17 @@ body {
 
 .correct-answer {
   border: solid green 2px;
+  background-color: #eeeeff;
+  font-size: 200%;
+}
+
+.correct-answer .live-label {
+  display: none;
+}
+.correct-answer .live-answer {
+  border: none;
+  background-color: #eeeeff;
+  left: 0px;
 }
 
 button.correct {
@@ -41,4 +52,17 @@ button.pending {
   position: relative;
   left: -20px;
   font-weight: bold;
+}
+
+.row button {
+  width: 100%;
+  margin: 10px;
+}
+
+.answer-remote {
+  font-style: oblique;
+}
+
+.advance-button {
+  height: 70px;
 }

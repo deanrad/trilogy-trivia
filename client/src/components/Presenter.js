@@ -23,7 +23,7 @@ const SignIn = ({ title, players }) => {
 
 const RoundView = ({ players, round }) => (
   <div>
-    <div class="response-count">
+    <div className="response-count">
       {round.responses.length}/{Object.keys(players).length} Responses Received
     </div>
     <h1>{round.prompt}</h1>
@@ -34,17 +34,19 @@ const RoundView = ({ players, round }) => (
           choice === round.answer && round.revealed ? "correct-answer" : ""
         }
       >
-
         <div className="live-answer">
-        <span className="live-label">{String.fromCharCode(65 + idx)}</span>
-        {choice}</div>
+          <span className="live-label">{String.fromCharCode(65 + idx)}</span>
+          {choice}
+        </div>
       </div>
     ))}
     {round.revealed &&
-      [<h3>Links</h3>].concat(
+      [<h3 key="h">Links</h3>].concat(
         round.links.map(({ text, href }) => (
-          <p>
-            <a href={href}>{text}</a>
+          <p key={href}>
+            <a href={href}>
+              {text}: {href}
+            </a>
           </p>
         ))
       )}

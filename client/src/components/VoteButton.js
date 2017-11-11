@@ -8,8 +8,6 @@ const displayStyle = ({
   answerQuestion
 }) => {
   let myChoice = myResponse && myResponse.choice
-  let myChoiceConfirmed = myResponse && myResponse.acceptedAt
-  let myChoiceReceived = myResponse && myResponse.receivedAt
 
   // they havent answered - no class
   if (!myResponse) return ""
@@ -28,9 +26,11 @@ const VoteButton = ({
   revealed,
   answerQuestion
 }) => {
+  let displayClass = displayStyle({ choice, myResponse, realAnswer, revealed })
   return (
     <button
-      className={displayStyle({ choice, myResponse, realAnswer, revealed })}
+      disabled={revealed || !!myResponse.choice}
+      className={displayClass}
       key={choice}
       onClick={e => {
         answerQuestion(choice)
