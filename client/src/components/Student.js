@@ -46,9 +46,9 @@ class Student extends Component {
   }
 
   render() {
-    let { round, signIn, answerQuestion } = this.props
+    let { round, signIn, answerQuestion, clientId } = this.props
     let { responses, prompt, choices, answer, revealed } = round || {}
-    if (!round) {
+    if (!clientId) {
       return <JoinForm signIn={signIn} />
     }
 

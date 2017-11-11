@@ -22,7 +22,7 @@ const eventCreators = socket => store => (/* dispatch */) => ({
       type: "ANSWER_QUESTION",
       payload: {
         choice,
-        player: localStorage.getItem("TrilobytesClientId")
+        player: store.getState().clientId
       }
     })
   },

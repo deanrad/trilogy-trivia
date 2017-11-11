@@ -6,33 +6,38 @@ const initialState = require("../data/gameState")
 const reducer = (state, action) => {
   switch (action.type) {
     case "ANSWER_QUESTION":
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         round: Object.assign(state.round, {
           responses: [...state.round.responses, action.payload]
         })
       })
     case "STATE_UPDATE":
-      return action.payload
+      // overwrite top-level fields, but leave any extras
+      return Object.assign({}, state, action.payload)
     case "ANSWER_REVEAL":
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         round: Object.assign(state.round, {
           revealed: true
         })
       })
     case "CONNECTION_ADDED":
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         currentConnectionCount: state.currentConnectionCount + 1,
         maxConnectionCount: state.maxConnectionCount + 1
       })
     case "CONNECTION_LEFT":
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         currentConnectionCount: state.currentConnectionCount - 1
       })
     case "PLAYER_JOINED":
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         players: Object.assign(state.players, {
           [action.payload.id]: action.payload.name
         })
+      })
+    case "IDENTIFY_CLIENT":
+      return Object.assign({}, state, {
+        clientId: action.payload
       })
     case "PLAYER_LEFT":
       // eslint-disable-next-line no-unused-vars
