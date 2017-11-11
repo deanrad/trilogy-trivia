@@ -6,8 +6,8 @@ import Student from './components/Student';
 import Presenter from './components/Presenter';
 import Remote from './components/Remote';
 import registerServiceWorker from './registerServiceWorker';
-import io from 'socket.io-client';
-import { store } from './store/';
+import io from 'socket.io-client'; // var io = require('socket.io-client)
+import { store } from './store/'; // var store = require('./store/').store
 import eventCreators from './store/actions';
 import { connect, Provider } from 'react-redux';
 
@@ -20,6 +20,10 @@ socket.on('stateUpdate', function(state) {
     type: 'STATE_UPDATE',
     payload: state
   });
+});
+
+socket.on('identify', function(uuid) {
+  localStorage.setItem('TrilobytesClientId', uuid);
 });
 
 const justState = state => state;

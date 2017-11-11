@@ -1,23 +1,28 @@
-import React, { Component } from 'react';
-import './Student.css';
+import React, { Component } from "react"
+import "./Student.css"
 
 class JoinForm extends React.Component {
   state = {
-    value: ''
-  };
+    name: "",
+    joined: false
+  }
 
   handleChange = event => {
-    console.log(event.target.value);
-    this.setState({ value: event.target.value });
-  };
+    this.setState({ name: event.target.value })
+  }
 
   handleSubmit = event => {
-    console.log('TODO submit the username');
-    event.preventDefault();
-  };
+    this.props.signIn({
+      name: this.state.name
+    })
+    this.setState({ joined: true })
+    event.preventDefault()
+  }
 
   render() {
-    return (
+    return this.state.joined ? (
+      <div>Thank you! The game will begin shortly</div>
+    ) : (
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
@@ -25,22 +30,23 @@ class JoinForm extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
             type="text"
+            disabled={this.state.joined}
           />
         </label>
-        <input type="submit" value="Join" />
+        <input type="submit" value="Join" disabled={this.state.joined} />
       </form>
-    );
+    )
   }
 }
 
 class App extends Component {
   handleAnswer = choice => {
-    this.props.answerQuestion(choice);
-  };
+    this.props.answerQuestion(choice)
+  }
 
   render() {
     if (!this.props.round) {
-      return <JoinForm />;
+      return <JoinForm signIn={this.props.signIn} />
     }
 
     return (
@@ -50,7 +56,7 @@ class App extends Component {
           <div key={choice}>
             <button
               onClick={() => {
-                this.handleAnswer(choice);
+                this.handleAnswer(choice)
               }}
             >
               {choice}
@@ -58,8 +64,8 @@ class App extends Component {
           </div>
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

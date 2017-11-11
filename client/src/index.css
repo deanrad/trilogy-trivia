@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.correct-answer {
+  border: solid green 2px;
+}
+.wrong-answer {
+  border: solid red 2px;
+}
+
+.response-count {
+  float: right;
+  font-style: oblique;
+}
+
+.game-title {
+  font-style: oblique;
+}

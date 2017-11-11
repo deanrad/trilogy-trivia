@@ -32,6 +32,13 @@ const eventCreators = socket => store => (/* dispatch */) => ({
       type: 'ADVANCE_QUESTION',
       payload: Object.assign(question, { responses: [] })
     });
+  },
+  signIn: ({ id, name }) => {
+    // note - not an 'action'
+    socket.emit('join', {
+      id,
+      name
+    });
   }
 });
 
