@@ -1,29 +1,45 @@
 import React from "react"
 
-const displayStyle = ({ choice, myID, responses, judged }) => {
-  let myResponse = responses[0]
+const displayStyle = ({
+  choice,
+  myResponse,
+  realAnswer,
+  revealed,
+  answerQuestion
+}) => {
   let myChoice = myResponse && myResponse.choice
   let myChoiceConfirmed = myResponse && myResponse.acceptedAt
   let myChoiceReceived = myResponse && myResponse.receivedAt
 
-  // they havent answered
+  // they havent answered - no class
   if (!myResponse) return ""
-  // this button isnt for their answer
+
+  // not their answer
   if (myChoice !== choice) return ""
 
-  if (!myChoiceReceived) return "pending"
-  if (!judged) return "pending"
-
-  return myChoiceConfirmed ? "accepted" : "incorrect"
+  if (!revealed && myChoice === choice) return "pending"
+  if (revealed) return myChoice === realAnswer ? "correct" : "incorrect"
 }
 
-export default ({ choice, responses, judged, myID, answerQuestion }) => (
-  <button
-    disabled={judged}
-    className={displayStyle({ choice, responses, judged, myID })}
-    key={choice}
-    onClick={() => answerQuestion(choice)}
-  >
-    <h1>{choice}</h1>
-  </button>
-)
+const VoteButton = ({
+  choice,
+  myResponse,
+  realAnswer,
+  revealed,
+  answerQuestion
+}) => {
+  return (
+    <button
+      className={displayStyle({ choice, myResponse, realAnswer, revealed })}
+      key={choice}
+      onClick={e => {
+        answerQuestion(choice)
+        e.preventDefault()
+      }}
+    >
+      <h1>{choice}</h1>
+    </button>
+  )
+}
+
+export default VoteButton

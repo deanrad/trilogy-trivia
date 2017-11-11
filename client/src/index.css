@@ -7,16 +7,17 @@ body {
 .correct-answer {
   border: solid green 2px;
 }
-.wrong-answer {
-  border: solid red 2px;
-}
 
-button.accepted {
+button.correct {
   border: green solid 3px;
 }
 
 button.incorrect {
   border: red solid 3px;
+}
+
+button.pending {
+  border: yellow dashed 2px;
 }
 
 .response-count {
@@ -26,4 +27,18 @@ button.incorrect {
 
 .game-title {
   font-style: oblique;
+}
+
+.live-answer {
+  background-color: #eeeeee;
+  border: 1px solid navy;
+  margin: 10px;
+  position: relative;
+  left: 15px;
+}
+
+.live-label {
+  position: relative;
+  left: -20px;
+  font-weight: bold;
 }

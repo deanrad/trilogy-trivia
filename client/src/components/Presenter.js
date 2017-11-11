@@ -1,24 +1,25 @@
 import React from "react"
 
-const SignIn = ({ title, players }) => (
-  <div>
-    <h1>
-      Join Us at{" "}
-      <span className="join-link">
-        {document.location.href.replace(/\/\w+$/, "")}
-      </span>{" "}
-      !
-    </h1>
-    <h3>{Object.keys(players).length} Players Joined</h3>
-    <div className="App">
-      <div className="App-header">
-        <img src="/img/trilobyte.jpg" className="App-logo" alt="logo" />
-        <h2>Welcome to Trilobytes!</h2>
+const SignIn = ({ title, players }) => {
+  let url = document.location.href.replace(/\/\w+$/, "")
+  let link = <a href={url}>{url}</a>
+
+  return (
+    <div>
+      <h1>
+        Join Us at <span className="join-link">{link}</span> !
+      </h1>
+      <h3>{Object.keys(players).length} Players Joined</h3>
+      <div className="App">
+        <div className="App-header">
+          <img src="/img/trilobyte.jpg" className="App-logo" alt="logo" />
+          <h2>Welcome to Trilobytes!</h2>
+        </div>
       </div>
+      {/* TODO we can know how many lurkers too */}
     </div>
-    {/* TODO we can know how many lurkers too */}
-  </div>
-)
+  )
+}
 
 const RoundView = ({ players, round }) => (
   <div>
@@ -26,14 +27,17 @@ const RoundView = ({ players, round }) => (
       {round.responses.length}/{Object.keys(players).length} Responses Received
     </div>
     <h1>{round.prompt}</h1>
-    {round.choices.map(choice => (
+    {round.choices.map((choice, idx) => (
       <div
         key={choice}
         className={
           choice === round.answer && round.revealed ? "correct-answer" : ""
         }
       >
-        <button>{choice}</button>
+
+        <div className="live-answer">
+        <span className="live-label">{String.fromCharCode(65 + idx)}</span>
+        {choice}</div>
       </div>
     ))}
     {round.revealed &&
