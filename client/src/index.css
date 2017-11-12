@@ -1,3 +1,34 @@
+.App {
+  text-align: center;
+  background-color: #dddddd;
+  border: 1px solid black;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.App-logo {
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 160px;
+}
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.App-header {
+  /* height: 150px; */
+  padding: 20px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +43,16 @@ body {
   font-size: 200%;
 }
 
+.praise {
+  font-family: "Times";
+  font-style: oblique;
+  font-size: 200%;
+}
+
+button.incorrect {
+  border: red dashed 2px;
+}
+
 .correct-answer .live-label {
   display: none;
 }
@@ -23,10 +64,6 @@ body {
 
 button.correct {
   border: green solid 3px;
-}
-
-button.incorrect {
-  border: red solid 3px;
 }
 
 button.pending {

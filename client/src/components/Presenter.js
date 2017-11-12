@@ -18,9 +18,9 @@ const SignIn = ({ title, players }) => {
             />
           }
           <h2>Introducing, Trilobytes of Trivia!</h2>
-      <h1>
-        Join Us at <span className="join-link">{link}</span> !
-      </h1>
+          <h1>
+            Join Us at <span className="join-link">{link}</span> !
+          </h1>
         </div>
       </div>
       {/* TODO we can know how many lurkers too */}
@@ -31,7 +31,8 @@ const SignIn = ({ title, players }) => {
 const RoundView = ({ players, round }) => (
   <div>
     <div className="response-count">
-      {round.responses.length}/{Object.keys(players).length} Responses Received
+      {Math.min(Object.keys(players).length, round.responses.length)}/{Object.keys(players).length}{" "}
+      Responses Received
     </div>
     <h1>{round.prompt}</h1>
     {round.choices.map((choice, idx) => (

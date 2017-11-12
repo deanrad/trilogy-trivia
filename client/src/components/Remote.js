@@ -1,10 +1,35 @@
 import React from "react"
-export default ({ title, round, revealAnswer, advanceQuestion }) => {
+import { createSelector } from "reselect"
+
+// unmemoized: works, but creates new object
+// let getUserNames = state => Object.keys(state.players).map(p => state.players[p].name)
+//
+// > getUserNames(props) === getUserNames(props)
+// false
+
+// memoized: returns the same object if input hasn't changed
+// > getUserNames(props) === getUserNames(props)
+// true
+let getUserNames = createSelector(
+  [state => Object.keys(state.players).map(p => state.players[p].name)],
+  names => names
+)
+
+export default props => {
+  let { title, round, revealAnswer, advanceQuestion } = props
   let { answer } = round || {}
+
+  let users = getUserNames(props)
+
   return (
     <div>
-      <h1>{title}</h1>
-      <div className="row answer-remote">Answer: ({answer})</div>
+      <div className="row answer-remote" style={{ float: "left" }}>
+        Signed on: {users.join(",")} <br />
+        Question 1/5<br />
+        Answer: ({answer})<br />
+      </div>
+      <h4 style={{ float: "right" }}>{title}</h4>
+      <div style={{ clear: "both" }} />
       <div className="row">
         <div className="col-sm">
           <button className="btn btn-primary" onClick={revealAnswer}>

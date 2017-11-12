@@ -33,21 +33,6 @@
         ]
     },
     {
-        "id": 4,
-        "prompt": "In a database with Parent/Child records, the record with the primary key is pointed to by the record with the foreign key?",
-        "choices": [
-            "true",
-            "false"
-        ],
-        "answer": "true",
-        "links": [
-            {
-                "href": "www.google.com",
-                "text": "LMGTFY"
-            }
-        ]
-    },
-    {
         "id": 5,
         "prompt": "All of these are examples of ORMs except?",
         "choices": [
@@ -74,23 +59,6 @@
             "npm blame"
         ],
         "answer": "npm install -S express",
-        "links": [
-            {
-                "href": "www.google.com",
-                "text": "LMGTFY"
-            }
-        ]
-    },
-    {
-        "id": 7,
-        "prompt": "Which of these REST actions is *mismatched* to its CRUD verb?",
-        "choices": [
-            "CREATE - INSERT",
-            "GET - SELECT",
-            "PATCH - UPDATE",
-            "DESTROY - DELETE"
-        ],
-        "answer": "CREATE - INSERT",
         "links": [
             {
                 "href": "www.google.com",
