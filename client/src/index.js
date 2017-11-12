@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./index.css"
 import Student from "./components/Student"
-import Presenter from "./components/Presenter"
+import Live from "./components/Live"
 import Remote from "./components/Remote"
 import registerServiceWorker from "./registerServiceWorker"
 import io from "socket.io-client" // var io = require('socket.io-client)
@@ -33,7 +33,7 @@ socket.on("identify", function(uuid) {
 const justState = state => state
 const dispatchOverSocket = eventCreators(socket)(store)
 const cStudent = connect(justState, dispatchOverSocket)(Student)
-const cPresenter = connect(justState, dispatchOverSocket)(Presenter)
+const cLive = connect(justState, dispatchOverSocket)(Live)
 const cRemote = connect(justState, dispatchOverSocket)(Remote)
 
 const RoutedApp = () => (
@@ -42,7 +42,7 @@ const RoutedApp = () => (
       {/* the most common case, a student joining will be the root  */}
       <Route exact path="/" component={cStudent} />
       <Route exact path="/student" component={cStudent} />
-      <Route exact path="/live" component={cPresenter} />
+      <Route exact path="/live" component={cLive} />
       <Route exact path="/remote" component={cRemote} />
       <Route render={() => <h3>Not found</h3>} />
     </Switch>
