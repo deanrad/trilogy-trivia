@@ -31,7 +31,7 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 10px;
   font-family: sans-serif;
   background-image: url(/img/circuit-tree-fade.jpg);
   background-position: top;
@@ -77,6 +77,7 @@ button.pending {
 
 .game-title {
   font-style: oblique;
+  float: left;
 }
 
 .live-answer {
@@ -85,6 +86,7 @@ button.pending {
   margin: 10px;
   position: relative;
   left: 15px;
+  font-size: 200%;
 }
 
 .live-label {

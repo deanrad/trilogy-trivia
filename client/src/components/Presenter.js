@@ -6,8 +6,10 @@ const SignIn = ({ title, players }) => {
 
   return (
     <div>
-      <h3>{Object.keys(players).length} Players Joined</h3>
-      <div className="App">
+      <h3 style={{ float: "right" }}>
+        {Object.keys(players).length} Players Joined
+      </h3>
+      <div style={{ clear: "both", padding: 47, margin: 20 }} className="App">
         <div className="App-header">
           {
             <img
@@ -31,33 +33,39 @@ const SignIn = ({ title, players }) => {
 const RoundView = ({ players, round }) => (
   <div>
     <div className="response-count">
+      Question {round.label}
+      <br />
       {Math.min(Object.keys(players).length, round.responses.length)}/{Object.keys(players).length}{" "}
       Responses Received
     </div>
-    <h1>{round.prompt}</h1>
-    {round.choices.map((choice, idx) => (
-      <div
-        key={choice}
-        className={
-          choice === round.answer && round.revealed ? "correct-answer" : ""
-        }
-      >
-        <div className="live-answer">
-          <span className="live-label">{String.fromCharCode(65 + idx)}</span>
-          {choice}
+    <div style={{ clear: "both", padding: 25 }}>
+      <h1>{round.prompt}</h1>
+      {round.choices.map((choice, idx) => (
+        <div
+          key={choice}
+          className={
+            choice === round.answer && round.revealed ? "correct-answer" : ""
+          }
+        >
+          <div className="live-answer">
+            <span className="live-label">{String.fromCharCode(65 + idx)}</span>
+            {choice}
+          </div>
         </div>
-      </div>
-    ))}
-    {round.revealed &&
-      [<h3 key="h">Links</h3>].concat(
-        round.links.map(({ text, href }) => (
-          <p key={href}>
-            <a href={href}>
-              {text}: {href}
-            </a>
-          </p>
-        ))
+      ))}
+      {round.revealed && (
+        <div>
+          <h3>Links</h3>
+          {round.links.map(({ text, href }) => (
+            <p key={href}>
+              <a href={href}>
+                {text}: {href}
+              </a>
+            </p>
+          ))}
+        </div>
       )}
+    </div>
   </div>
 )
 

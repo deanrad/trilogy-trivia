@@ -1,22 +1,5 @@
 [
     {
-        "id": 2,
-        "prompt": "JavaScript's creator spent this long creating it?",
-        "choices": [
-            "10 hours",
-            "10 days",
-            "10 weeks",
-            "10 months"
-        ],
-        "answer": "10 days",
-        "links": [
-            {
-                "href": "www.google.com",
-                "text": "LMGTFY"
-            }
-        ]
-    },
-    {
         "id": 3,
         "prompt": "The Express route /api/:table/:id? does NOT match?",
         "choices": [
@@ -27,10 +10,22 @@
         "answer": "/api/table/id/1",
         "links": [
             {
-                "href": "www.google.com",
-                "text": "LMGTFY"
+                "href": "https://expressjs.com/en/guide/routing.html",
+                "text": "Express 4 Routing"
             }
         ]
+    },
+    {
+        "id": 2,
+        "prompt": "JavaScript's creator spent this long creating it?",
+        "choices": [
+            "10 hours",
+            "10 days",
+            "10 weeks",
+            "10 months"
+        ],
+        "answer": "10 days",
+        "links": []
     },
     {
         "id": 5,
@@ -42,12 +37,7 @@
             "Mongoose"
         ],
         "answer": "Express",
-        "links": [
-            {
-                "href": "www.google.com",
-                "text": "LMGTFY"
-            }
-        ]
+        "links": []
     },
     {
         "id": 6,
@@ -59,12 +49,7 @@
             "npm blame"
         ],
         "answer": "npm install -S express",
-        "links": [
-            {
-                "href": "www.google.com",
-                "text": "LMGTFY"
-            }
-        ]
+        "links": []
     },
     {
         "id": 8,
@@ -76,12 +61,7 @@
             "Requires lower-powered device to render the page"
         ],
         "answer": "Requires higher-powered device to render the page",
-        "links": [
-            {
-                "href": "www.google.com",
-                "text": "LMGTFY"
-            }
-        ]
+        "links": []
     },
     {
         "id": 9,
@@ -94,8 +74,8 @@
         "answer": "Yay! (Better look out for malicious user content)",
         "links": [
             {
-                "href": "www.google.com",
-                "text": "LMGTFY"
+                "href": "https://www.veracode.com/security/xss",
+                "text": "Cross-Site Scripting Attacks"
             }
         ]
     },
@@ -113,6 +93,23 @@
             {
                 "href": "www.google.com",
                 "text": "LMGTFY"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "prompt": "(3 % 2 === 1) ? 'YAY' : 'BOO' will evaluate to what?",
+        "choices": [
+            "YAY",
+            "BOO",
+            "null",
+            "NaN"
+        ],
+        "answer": "YAY",
+        "links": [
+            {
+                "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator",
+                "text": "The ternary (? :) operator on MDN"
             }
         ]
     }

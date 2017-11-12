@@ -48,7 +48,11 @@ const reducer = (state, action) => {
       delete players[action.payload.id]
       return Object.assign(state, { players })
     case "ADVANCE_QUESTION":
-      return Object.assign(state, { round: action.payload })
+      return Object.assign(state, {
+        round: Object.assign({}, action.payload, {
+          label: ((state.round && state.round.label) || 0) + 1
+        })
+      })
     default:
       return state
   }

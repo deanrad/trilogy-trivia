@@ -11,7 +11,7 @@ class Student extends Component {
 
   render() {
     let { round, signIn, answerQuestion, clientId } = this.props
-    let { responses, prompt, choices, answer, revealed } = round || {}
+    let { label, responses, prompt, choices, answer, revealed } = round || {}
     if (!clientId || !round) {
       return <JoinForm signIn={signIn} />
     }
@@ -20,7 +20,7 @@ class Student extends Component {
       (responses && responses.find(r => r.player === clientId)) || {}
     return (
       <div>
-        <div>Question 1</div>
+        <div>Question {label}</div>
         <h2>{prompt}</h2>
         <br />
         <div className="voting">
