@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-color: #dddddd;
+  border: 1px solid black;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .App-logo {

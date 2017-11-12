@@ -6,14 +6,21 @@ const SignIn = ({ title, players }) => {
 
   return (
     <div>
-      <h1>
-        Join Us at <span className="join-link">{link}</span> !
-      </h1>
       <h3>{Object.keys(players).length} Players Joined</h3>
       <div className="App">
         <div className="App-header">
-          <img src="/img/trilobyte.jpg" className="App-logo" alt="logo" />
-          <h2>Welcome to Trilobytes!</h2>
+          {
+            <img
+              src="/img/trilobyte.jpg"
+              className="App-logo"
+              alt="logo"
+              style={{ float: "right" }}
+            />
+          }
+          <h2>Introducing, Trilobytes of Trivia!</h2>
+      <h1>
+        Join Us at <span className="join-link">{link}</span> !
+      </h1>
         </div>
       </div>
       {/* TODO we can know how many lurkers too */}
