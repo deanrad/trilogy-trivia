@@ -11,7 +11,11 @@ import { store } from "./store/" // var store = require('./store/').store
 import eventCreators from "./store/actions"
 import { connect, Provider } from "react-redux"
 
-const url = "http://localhost:3001" // TODO switch this for prod
+const url =
+  process.env.NODE_ENV === "production"
+    ? document.location.href.replace(/\/\w+$/, "") // get rid of path
+    : "http://localhost:3001"
+
 const socket = io(url)
 window.socket = socket
 

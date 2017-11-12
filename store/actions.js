@@ -4,7 +4,7 @@ const nextQuestion = store => {
   let current = store.getState().round
   if (!current) return questions[0]
   let { prompt } = current || {}
-  let idx = questions.findIndex(q => q.prompt == prompt)
+  let idx = questions.findIndex(q => q.prompt === prompt)
   let nextIdx = idx + 1
   return questions[nextIdx]
 }
