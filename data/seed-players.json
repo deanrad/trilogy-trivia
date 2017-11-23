@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "5a1642c9f36d280cc00d1410"
+        },
+        "githubId": "deanius",
+        "name": "Dean R",
+        "role": "Instructor"
+    },
+    {
+        "_id": {
+            "$oid": "5a1642c9f36d280cc00d1416"
+        },
+        "githubId": "EsdrasEtrenne",
+        "name": "Dr. E",
+        "role": "Instructor"
+    },
+    {
+        "_id": {
+            "$oid": "5a164309f36d280cc00d1422"
+        },
+        "githubId": "youknowme786",
+        "name": "Ali",
+        "role": "Student"
+    }
+]
