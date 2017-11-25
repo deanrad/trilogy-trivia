@@ -1,23 +1,23 @@
-import React, { Component } from "react"
-import "./Student.css"
-import VoteButton from "./VoteButton"
-import JoinForm from "./JoinForm"
-import randomPraise from "../data/praise"
+import React, { Component } from "react";
+import "./Student.css";
+import VoteButton from "./VoteButton";
+import JoinForm from "./JoinForm";
+import randomPraise from "../data/praise";
 
 class Student extends Component {
   handleAnswer = choice => {
-    this.props.answerQuestion(choice)
-  }
+    this.props.answerQuestion(choice);
+  };
 
   render() {
-    let { round, signIn, answerQuestion, clientId } = this.props
-    let { label, responses, prompt, choices, answer, revealed } = round || {}
+    let { round, answerQuestion, clientId } = this.props;
+    let { label, responses, prompt, choices, answer, revealed } = round || {};
     if (!clientId || !round) {
-      return <JoinForm signIn={signIn} />
+      return <JoinForm {...this.props} />;
     }
 
     let myResponse =
-      (responses && responses.find(r => r.player === clientId)) || {}
+      (responses && responses.find(r => r.player === clientId)) || {};
     return (
       <div>
         <div>Question {label}</div>
@@ -34,7 +34,7 @@ class Student extends Component {
                 realAnswer={answer}
                 answerQuestion={answerQuestion}
               />
-            )
+            );
           })}
         </div>
         {revealed && (
@@ -49,8 +49,8 @@ class Student extends Component {
             <div className="praise">{randomPraise()}</div>
           )}
       </div>
-    )
+    );
   }
 }
 
-export default Student
+export default Student;

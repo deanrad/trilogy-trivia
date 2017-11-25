@@ -18,7 +18,14 @@
     "react-scripts": "^1.0.17"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.13.5",
+    "mongoose-findorcreate": "^2.0.0",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-github2": "^0.1.11",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "reselect": "^3.0.1",

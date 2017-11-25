@@ -39,9 +39,8 @@ const reducer = (state, action) => {
         })
       })
     case "IDENTIFY_CLIENT":
-      return Object.assign({}, state, {
-        clientId: action.payload
-      })
+      // merge any provided fields into state
+      return Object.assign({}, state, action.payload)
     case "PLAYER_LEFT":
       // eslint-disable-next-line no-unused-vars
       let players = Object.assign({}, state.players)
