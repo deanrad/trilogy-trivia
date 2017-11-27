@@ -59,6 +59,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-if (process.env.NODE_ENV === "production") {
-  registerServiceWorker();
-}

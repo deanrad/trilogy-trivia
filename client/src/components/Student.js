@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Student.css";
 import VoteButton from "./VoteButton";
 import JoinForm from "./JoinForm";
-import randomPraise from "../data/praise";
 
 class Student extends Component {
   handleAnswer = choice => {
@@ -46,7 +45,7 @@ class Student extends Component {
 
         {revealed &&
           answer === myResponse.choice && (
-            <div className="praise">{randomPraise()}</div>
+            <div className="praise">Way to go!</div>
           )}
       </div>
     );
