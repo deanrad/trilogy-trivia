@@ -5,7 +5,6 @@ import "./index.css";
 import Student from "./components/Student";
 import Live from "./components/Live";
 import Remote from "./components/Remote";
-import registerServiceWorker from "./registerServiceWorker";
 import io from "socket.io-client"; // var io = require('socket.io-client)
 import { store } from "./store/"; // var store = require('./store/').store
 import eventCreators from "./store/actions";
