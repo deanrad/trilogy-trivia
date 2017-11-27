@@ -78,11 +78,6 @@ const sendState = () => {
   io.emit("stateUpdate", { round, title, players });
 };
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("./client/build"));
-}
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -113,6 +108,11 @@ app.get(
     );
   }
 );
+
+// Serve up static assets (usually on heroku)
+// if (process.env.NODE_ENV === "production") {
+app.use(express.static(path.join(__dirname, "client/build")));
+//}
 
 // Send every request to the React app
 // Define any API routes before this runs
