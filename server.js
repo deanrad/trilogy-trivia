@@ -44,12 +44,17 @@ passport.deserializeUser(function(obj, done) {
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and GitHub
 //   profile), and invoke a callback with a user object.
+const callbackURL =
+  NODE_ENV === "production"
+    ? "https://nu-review.herokuapp.com/auth/github/callback"
+    : "http://localhost:3001/auth/github/callback";
+
 passport.use(
   new GitHubStrategy(
     {
       clientID: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: "http://localhost:3001/auth/github/callback"
+      callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
       // To keep the example simple, the user's GitHub profile is returned to
