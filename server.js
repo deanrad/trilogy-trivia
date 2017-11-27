@@ -67,7 +67,10 @@ passport.use(
       if (mongoose.connection.readyState === 0)
         throw new Error("Need MONGO connection to handle OAuth");
 
-      Student.findOrCreate({ githubId: username }, { name: displayName })
+      Student.findOrCreate(
+        { githubId: username },
+        { name: displayName || username || user }
+      )
         .then(({ doc, created }) => {
           done(null, doc);
         })
