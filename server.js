@@ -17,20 +17,15 @@ const GitHubStrategy = require("passport-github2").Strategy;
 const GITHUB_CLIENT_ID = "37dabf371fa04f10829f";
 const GITHUB_CLIENT_SECRET = "6993702cd42d11cfc26acba327ced7390a879cda";
 
-let Student;
-
-if (process.env.MONGODB_URI || process.env.NODE_ENV !== "production") {
-  const mongoUri = process.env.MONGODB_URI || "mongodb://localhost/trilobytes";
-  console.log("Connecting to " + mongoUri);
-  // Set up promises with mongoose
-  mongoose.Promise = Promise;
-  // Connect to the Mongo DB
-  mongoose.connect(mongoUri, {
-    useMongoClient: true
-  });
-
-  Student = require("./models").Student;
-}
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost/trilobytes";
+console.log("Connecting to " + mongoUri);
+// Set up promises with mongoose
+mongoose.Promise = Promise;
+// Connect to the Mongo DB
+mongoose.connect(mongoUri, {
+  useMongoClient: true
+});
+const { Student, Game } = require("./models");
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -176,4 +171,12 @@ store.subscribe(function() {
   const state = store.getState();
   console.log("New state:", JSON.stringify(state, null, 2));
   sendState();
+});
+
+store.subscribe(() => {
+  let game = store.getState();
+  let gameId = "nu-review";
+  Game.update({ gameId: gameId }, game, { upsert: true })
+    .then(x => console.log(x))
+    .catch(e => console.error(e));
 });
