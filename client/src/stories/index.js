@@ -6,11 +6,35 @@ import { linkTo } from "@storybook/addon-links";
 
 import { Button, Welcome } from "@storybook/react/demo";
 import VoteButton from "../components/VoteButton";
+import Live, { SignIn, RoundView } from "../components/Live";
 import "../index.css";
+
+import seedGames from "../data/seed-games.json";
+const exampleRound = seedGames[0].round;
+console.log(exampleRound);
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
 ));
+
+storiesOf("LiveScreen/SignIn").add("Noone Joined", () => (
+  <SignIn players={{}} />
+));
+
+storiesOf("LiveScreen/SignIn").add("Some People Joined", () => (
+  <SignIn players={{ deanius: {} }} />
+));
+
+storiesOf("LiveScreen/Round View")
+  .add("Recieving Answers", () => (
+    <RoundView players={{ deanius: {}, esdras: {} }} round={exampleRound} />
+  ))
+  .add("Revealed", () => (
+    <RoundView
+      players={{ deanius: {}, esdras: {} }}
+      round={{ ...exampleRound, revealed: true }}
+    />
+  ));
 
 storiesOf("VoteButton", module)
   .add("ViewOnly", () => <VoteButton choice="Not clickable" viewOnly={true} />)

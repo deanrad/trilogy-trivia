@@ -1,46 +1,47 @@
 [
-    {
-        "_id": {
-            "$oid": "5a164544f36d280cc00d1443"
-        },
-        "title": "NU Review Game, Week 8 Node",
-        "players": [
-            {
-                "id": "5a164309f36d280cc00d1416",
-                "name": "Ali"
-            }
-        ],
-        "round": {
-            "qId": "EXPRESS-254",
-            "prompt": "What the..",
-            "choices": [
-                "T",
-                "J",
-                "Eff",
-                "F"
-            ],
-            "responses": [
-                {
-                    "player": "5a164309f36d280cc00d1416",
-                    "responsse": "Eff"
-                }
-            ]
-        },
-        "questions": [
-            {
-                "qId": "EXPRESS-254",
-                "prompt": "Which route matches?",
-                "correct": "/api/2",
-                "responses": [
-                    {
-                        "player": "5a164309f36d280cc00d1416",
-                        "responsse": "/api/2"
-                    }
-                ]
-            }
-        ],
-        "points": {
-            "5a164309f36d280cc00d1416": 10
+  {
+    "_id": {
+      "$oid": "5a164544f36d280cc00d1443"
+    },
+    "title": "NU Review Game, Week 8 Node",
+    "players": [
+      {
+        "id": "5a164309f36d280cc00d1416",
+        "name": "Ali"
+      }
+    ],
+    "round": {
+      "qId": "EXPRESS-254",
+      "prompt": "What the..",
+      "choices": ["T", "J", "Eff", "F"],
+      "responses": [
+        {
+          "player": "5a164309f36d280cc00d1416",
+          "responsse": "Eff"
         }
+      ],
+      "links": [
+        {
+          "text": "The Manual",
+          "href": "rtfm.org"
+        }
+      ]
+    },
+    "questions": [
+      {
+        "qId": "EXPRESS-254",
+        "prompt": "Which route matches?",
+        "correct": "/api/2",
+        "responses": [
+          {
+            "player": "5a164309f36d280cc00d1416",
+            "responsse": "/api/2"
+          }
+        ]
+      }
+    ],
+    "points": {
+      "5a164309f36d280cc00d1416": 10
     }
+  }
 ]

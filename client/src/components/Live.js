@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 
-const SignIn = ({ title, players }) => {
-  let url = document.location.href.replace(/\/\w+$/, "")
-  let link = <a href={url}>{url}</a>
+export const SignIn = ({ title, players }) => {
+  let url = document.location.href.replace(/\/\w+$/, "");
+  let link = <a href={url}>{url}</a>;
 
   return (
     <div>
@@ -27,15 +27,17 @@ const SignIn = ({ title, players }) => {
       </div>
       {/* TODO we can know how many lurkers too */}
     </div>
-  )
-}
+  );
+};
 
-const RoundView = ({ players, round }) => (
+export const RoundView = ({ players, round }) => (
   <div>
     <div className="response-count">
       Question {round.label}
       <br />
-      {Math.min(Object.keys(players).length, round.responses.length)}/{Object.keys(players).length}{" "}
+      {Math.min(Object.keys(players).length, round.responses.length)}/{
+        Object.keys(players).length
+      }{" "}
       Responses Received
     </div>
     <div style={{ clear: "both", padding: 25 }}>
@@ -56,21 +58,23 @@ const RoundView = ({ players, round }) => (
       {round.revealed && (
         <div>
           <h3>Links</h3>
-          {round.links.map(({ text, href }) => (
-            <p key={href}>
-              <a href={href}>
-                {text}: {href}
-              </a>
-            </p>
-          ))}
+          {round.links &&
+            round.links.length &&
+            round.links.map(({ text, href }) => (
+              <p key={href}>
+                <a href={href}>
+                  {text}: {href}
+                </a>
+              </p>
+            ))}
         </div>
       )}
     </div>
   </div>
-)
+);
 
 export default props => {
-  let { title } = props
+  let { title } = props;
   return (
     <div>
       <h2 className="game-title">{title}</h2>
@@ -79,5 +83,5 @@ export default props => {
      */}
       {props.round ? <RoundView {...props} /> : <SignIn {...props} />}
     </div>
-  )
-}
+  );
+};
