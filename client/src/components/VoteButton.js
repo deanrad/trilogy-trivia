@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const displayStyle = ({
   choice,
@@ -7,17 +7,17 @@ const displayStyle = ({
   revealed,
   answerQuestion
 }) => {
-  let myChoice = myResponse && myResponse.choice
+  let myChoice = myResponse && myResponse.choice;
 
   // they havent answered - no class
-  if (!myResponse) return ""
+  if (!myResponse) return "";
 
   // not their answer
-  if (myChoice !== choice) return ""
+  if (myChoice !== choice) return "";
 
-  if (!revealed && myChoice === choice) return "pending"
-  if (revealed) return myChoice === realAnswer ? "correct" : "incorrect"
-}
+  if (!revealed && myChoice === choice) return "pending";
+  if (revealed) return myChoice === realAnswer ? "correct" : "incorrect";
+};
 
 const VoteButton = ({
   choice,
@@ -26,20 +26,20 @@ const VoteButton = ({
   revealed,
   answerQuestion
 }) => {
-  let displayClass = displayStyle({ choice, myResponse, realAnswer, revealed })
+  let displayClass = displayStyle({ choice, myResponse, realAnswer, revealed });
   return (
     <button
-      disabled={revealed || !!myResponse.choice}
+      disabled={revealed || !!(myResponse && myResponse.choice)}
       className={displayClass}
       key={choice}
       onClick={e => {
-        answerQuestion(choice)
-        e.preventDefault()
+        answerQuestion(choice);
+        e.preventDefault();
       }}
     >
       <h1>{choice}</h1>
     </button>
-  )
-}
+  );
+};
 
-export default VoteButton
+export default VoteButton;
