@@ -16,23 +16,18 @@ let getUserNames = createSelector(
   names => names
 );
 
-let getResponseCounts = createSelector(
-  [
-    state => {
-      return state && state.round && state.round.choices;
-    },
-    state => {
-      return state.round && state.round.responses;
-    }
-  ],
-  (choices, responses) => {
-    console.log({ choices, responses });
-    // return [1, 1, 12, 3, 1];
-    return (choices || []).map(
-      c => responses.filter(r => r.choice === c).length + 1
-    );
-  }
-);
+const getResponseCounts = round => {
+  let { choices, responses } = round || {};
+  // console.log({ choices, responses });
+  // if (!choices && choices.length !== 0) return [];
+
+  let result = [1, 2, 1, 1];
+  // let result = (choices || []).map(
+  //   c => responses.filter(r => r.choice === c).length + 1
+  // );
+  console.log(result);
+  return result;
+};
 
 export default props => {
   let { title, round, nextRound, revealAnswer, advanceQuestion } = props;
@@ -40,7 +35,7 @@ export default props => {
   let nextRoundPrompt = (nextRound || {}).prompt;
 
   let users = getUserNames(props);
-  let responseCounts = getResponseCounts(props);
+  let responseCounts = getResponseCounts(round);
 
   return (
     <div>
