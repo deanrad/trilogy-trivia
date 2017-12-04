@@ -130,7 +130,7 @@ app.get("/remote", serveUpReact);
 
 // Catch all (doesn't 404 if text/html contenttype unfortunately)
 app.get("*", function(req, res) {
-  res.send("what???", 404);
+  res.status(404).send("Huh ???");
 });
 
 http.listen(PORT, function() {
