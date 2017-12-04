@@ -10,15 +10,15 @@ class Student extends Component {
   };
 
   render() {
-    let { round, answerQuestion, clientId } = this.props;
+    let { round, answerQuestion, username } = this.props;
     let { questionKey, responses, prompt, choices, answer, revealed } =
       round || {};
-    if (!clientId || !round) {
+    if (!username || !round) {
       return <JoinForm {...this.props} />;
     }
 
     let myResponse =
-      (responses && responses.find(r => r.player === clientId)) || {};
+      (responses && responses.find(r => r.username === username)) || {};
     return (
       <div>
         <div>Question {questionKey}</div>
