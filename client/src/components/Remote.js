@@ -16,12 +16,31 @@ let getUserNames = createSelector(
   names => names
 );
 
+let getResponseCounts = createSelector(
+  [
+    state => {
+      return state && state.round && state.round.choices;
+    },
+    state => {
+      return state.round && state.round.responses;
+    }
+  ],
+  (choices, responses) => {
+    console.log({ choices, responses });
+    // return [1, 1, 12, 3, 1];
+    return (choices || []).map(
+      c => responses.filter(r => r.choice === c).length + 1
+    );
+  }
+);
+
 export default props => {
   let { title, round, nextRound, revealAnswer, advanceQuestion } = props;
   let { answer } = round || {};
   let nextRoundPrompt = (nextRound || {}).prompt;
 
   let users = getUserNames(props);
+  let responseCounts = getResponseCounts(props);
 
   return (
     <div>
@@ -35,7 +54,7 @@ export default props => {
         <br />
       </div>
       <div className="row" style={{ float: "left", clear: "left" }}>
-        <BarChart data={[1, 20, 10, 5, 1]} />
+        <BarChart data={responseCounts} />
       </div>
       <h4 style={{ float: "right" }}>{title}</h4>
       <div style={{ clear: "both" }} />
