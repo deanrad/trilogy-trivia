@@ -119,10 +119,14 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("/", function(req, res) {
+const serveUpReact = (req, res) => {
   console.log("Session:", req.session);
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+};
+app.get("/", serveUpReact);
+app.get("/student", serveUpReact);
+app.get("/live", serveUpReact);
+app.get("/remote", serveUpReact);
 
 // Catch all (doesn't 404 if text/html contenttype unfortunately)
 app.get("*", function(req, res) {
