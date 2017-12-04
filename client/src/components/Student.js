@@ -10,7 +10,8 @@ class Student extends Component {
 
   render() {
     let { round, answerQuestion, clientId } = this.props;
-    let { label, responses, prompt, choices, answer, revealed } = round || {};
+    let { questionKey, responses, prompt, choices, answer, revealed } =
+      round || {};
     if (!clientId || !round) {
       return <JoinForm {...this.props} />;
     }
@@ -19,7 +20,7 @@ class Student extends Component {
       (responses && responses.find(r => r.player === clientId)) || {};
     return (
       <div>
-        <div>Question {label}</div>
+        <div>Question {questionKey}</div>
         <h2>{prompt}</h2>
         <br />
         <div className="voting">

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 export const SignIn = ({ title, players }) => {
   let url = document.location.href.replace(/\/\w+$/, "");
@@ -33,7 +34,7 @@ export const SignIn = ({ title, players }) => {
 export const RoundView = ({ players, round }) => (
   <div>
     <div className="response-count">
-      Question {round.label}
+      Question {round.questionKey}
       <br />
       {Math.min(Object.keys(players).length, round.responses.length)}/{
         Object.keys(players).length
@@ -42,6 +43,7 @@ export const RoundView = ({ players, round }) => (
     </div>
     <div style={{ clear: "both", padding: 25 }}>
       <h1>{round.prompt}</h1>
+      <ReactMarkdown source={round.markup} />
       {round.choices.map((choice, idx) => (
         <div
           key={choice}
