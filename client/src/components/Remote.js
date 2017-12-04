@@ -1,5 +1,6 @@
 import React from "react";
 import { createSelector } from "reselect";
+import BarChart from "react-micro-bar-chart";
 
 // unmemoized: works, but creates new object
 // let getUserNames = state => Object.keys(state.players).map(p => state.players[p].name)
@@ -26,12 +27,15 @@ export default props => {
     <div>
       <div className="row answer-remote" style={{ float: "right" }}>
         Signed on: {users.join(",")} <br />
-        Question 1/5
+        Question 1/5 <br />
       </div>
       <div className="row answer-remote" style={{ float: "left" }}>
         Answer: ({answer})<br />
         Next: "{nextRoundPrompt}"
         <br />
+      </div>
+      <div className="row" style={{ float: "left", clear: "left" }}>
+        <BarChart data={[1, 20, 10, 5, 1]} />
       </div>
       <h4 style={{ float: "right" }}>{title}</h4>
       <div style={{ clear: "both" }} />
