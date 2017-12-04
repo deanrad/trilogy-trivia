@@ -119,9 +119,14 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("/", function(req, res) {
   console.log("Session:", req.session);
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+// Catch all (doesn't 404 if text/html contenttype unfortunately)
+app.get("*", function(req, res) {
+  res.send("what???", 404);
 });
 
 http.listen(PORT, function() {
