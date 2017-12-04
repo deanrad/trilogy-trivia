@@ -23,7 +23,9 @@ class Student extends Component {
       <div>
         <div>Question {questionKey}</div>
         <h2>{prompt}</h2>
-        <ReactMarkdown source={round.markup} />
+        <h2>
+          <ReactMarkdown source={round.markup} />
+        </h2>
         <br />
         <div className="voting">
           {choices.map(choice => {

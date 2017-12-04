@@ -12,11 +12,17 @@
     ],
     "round": {
       "questionKey": "EXPRESS-201",
-      "prompt": "WWWhich route matches?",
+      "prompt": "Which route matches?",
       "markup": "`/api/a/:id`",
-      "correct": "/api/a/1",
+      "answer": "/api/a/1",
       "choices": ["/api/a/1", "/api/b/2", "/api/c/3", "/api/d"],
-      "categories": ["Node", "Express"]
+      "categories": ["Node", "Express"],
+      "responses": [
+        {
+          "username": "5a164309f36d280cc00d1416",
+          "choice": "Eff"
+        }
+      ]
     },
     "nextRound": {
       "questionKey": "FUNNY-254",
@@ -24,8 +30,8 @@
       "choices": ["Fudge", "heck", "Eff", "F"],
       "responses": [
         {
-          "player": "5a164309f36d280cc00d1416",
-          "responsse": "Eff"
+          "username": "5a164309f36d280cc00d1416",
+          "choice": "Eff"
         }
       ],
       "links": [
@@ -39,7 +45,7 @@
       {
         "qId": "EXPRESS-254",
         "prompt": "Which route matches?",
-        "correct": "/api/2",
+        "answer": "/api/2",
         "responses": [
           {
             "player": "5a164309f36d280cc00d1416",

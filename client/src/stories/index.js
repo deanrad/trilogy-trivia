@@ -7,10 +7,12 @@ import { linkTo } from "@storybook/addon-links";
 import { Button, Welcome } from "@storybook/react/demo";
 import VoteButton from "../components/VoteButton";
 import Live, { SignIn, RoundView } from "../components/Live";
+import Remote from "../components/Remote";
 import "../index.css";
 
 import seedGames from "../data/seed-games.json";
-const exampleRound = seedGames[0].round;
+const exampleGame = seedGames[0];
+const exampleRound = exampleGame.round;
 console.log(exampleRound);
 
 storiesOf("Welcome", module).add("to Storybook", () => (
@@ -35,6 +37,10 @@ storiesOf("LiveScreen/Round View")
       round={{ ...exampleRound, revealed: true }}
     />
   ));
+
+storiesOf("Remote Screen").add("During Game", () => (
+  <Remote {...exampleGame} />
+));
 
 storiesOf("VoteButton", module)
   .add("ViewOnly", () => <VoteButton choice="Not clickable" viewOnly={true} />)

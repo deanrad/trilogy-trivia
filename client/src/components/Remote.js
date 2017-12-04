@@ -1,5 +1,5 @@
-import React from "react"
-import { createSelector } from "reselect"
+import React from "react";
+import { createSelector } from "reselect";
 
 // unmemoized: works, but creates new object
 // let getUserNames = state => Object.keys(state.players).map(p => state.players[p].name)
@@ -13,20 +13,25 @@ import { createSelector } from "reselect"
 let getUserNames = createSelector(
   [state => Object.keys(state.players).map(p => state.players[p].name)],
   names => names
-)
+);
 
 export default props => {
-  let { title, round, revealAnswer, advanceQuestion } = props
-  let { answer } = round || {}
+  let { title, round, nextRound, revealAnswer, advanceQuestion } = props;
+  let { answer } = round || {};
+  let nextRoundPrompt = (nextRound || {}).prompt;
 
-  let users = getUserNames(props)
+  let users = getUserNames(props);
 
   return (
     <div>
-      <div className="row answer-remote" style={{ float: "left" }}>
+      <div className="row answer-remote" style={{ float: "right" }}>
         Signed on: {users.join(",")} <br />
-        Question 1/5<br />
+        Question 1/5
+      </div>
+      <div className="row answer-remote" style={{ float: "left" }}>
         Answer: ({answer})<br />
+        Next: "{nextRoundPrompt}"
+        <br />
       </div>
       <h4 style={{ float: "right" }}>{title}</h4>
       <div style={{ clear: "both" }} />
@@ -52,5 +57,5 @@ export default props => {
         <button className="btn btn-warning">End Game</button>
       </div>
     </div>
-  )
-}
+  );
+};

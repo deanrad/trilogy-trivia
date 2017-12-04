@@ -36,14 +36,14 @@ export const RoundView = ({ players, round }) => (
     <div className="response-count">
       Question {round.questionKey}
       <br />
-      {Math.min(Object.keys(players).length, round.responses.length)}/{
+      {Math.min(Object.keys(players).length, (round.responses || []).length)}/{
         Object.keys(players).length
       }{" "}
       Responses Received
     </div>
     <div style={{ clear: "both", padding: 25 }}>
       <h1>{round.prompt}</h1>
-      <ReactMarkdown source={round.markup} />
+      <h2><ReactMarkdown source={round.markup} /></h2>
       {round.choices.map((choice, idx) => (
         <div
           key={choice}
