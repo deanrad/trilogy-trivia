@@ -68,7 +68,10 @@ passport.use(
 
       Student.findOrCreate(
         { githubId: username },
-        { name: displayName || username || user }
+        {
+          name: displayName || username || user,
+          githubProfile: profile
+        }
       )
         .then(({ doc, created }) => {
           done(null, doc);
