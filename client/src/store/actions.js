@@ -46,6 +46,11 @@ const eventCreators = socket => store => dispatch => ({
       type: "IDENTIFY_CLIENT",
       payload: { username }
     });
+  },
+  showStats: () => {
+    socket.emit("action", {
+      type: "SHOW_STATS"
+    });
   }
 });
 

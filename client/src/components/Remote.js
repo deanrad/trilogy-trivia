@@ -17,7 +17,7 @@ let getUserNames = createSelector(
 );
 
 const getResponseCounts = round => {
-  let { choices, responses } = round || {};
+  // let { choices, responses } = round || {};
   // console.log({ choices, responses });
   // if (!choices && choices.length !== 0) return [];
 
@@ -30,7 +30,14 @@ const getResponseCounts = round => {
 };
 
 export default props => {
-  let { title, round, nextRound, revealAnswer, advanceQuestion } = props;
+  let {
+    title,
+    round,
+    nextRound,
+    revealAnswer,
+    advanceQuestion,
+    showStats
+  } = props;
   let { answer } = round || {};
   let nextRoundPrompt = (nextRound || {}).prompt;
 
@@ -60,7 +67,9 @@ export default props => {
           </button>
         </div>
         <div className="col-sm">
-          <button className="btn btn-primary">Show Stats (TODO)</button>{" "}
+          <button className="btn btn-primary" onClick={showStats}>
+            Show Stats (TODO)
+          </button>
         </div>
       </div>
       <div className="row">

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const displayStyle = ({
   choice,
@@ -21,6 +22,7 @@ const displayStyle = ({
 
 const VoteButton = ({
   choice,
+  choiceMarkup,
   myResponse,
   realAnswer,
   revealed,
@@ -37,7 +39,11 @@ const VoteButton = ({
         e.preventDefault();
       }}
     >
-      <h1>{choice}</h1>
+      {choiceMarkup ? (
+        <ReactMarkdown source={choiceMarkup} />
+      ) : (
+        <h1>{choice}</h1>
+      )}
     </button>
   );
 };

@@ -11,7 +11,15 @@ class Student extends Component {
 
   render() {
     let { round, answerQuestion, username } = this.props;
-    let { questionKey, responses, prompt, choices, answer, revealed } =
+    let {
+      questionKey,
+      responses,
+      prompt,
+      choices = [],
+      choiceMarkups = [],
+      answer,
+      revealed
+    } =
       round || {};
     if (!username || !round) {
       return <JoinForm {...this.props} />;
@@ -21,18 +29,19 @@ class Student extends Component {
       (responses && responses.find(r => r.username === username)) || {};
     return (
       <div>
-        <div>Question {questionKey}</div>
+        <div>{questionKey}</div>
         <h2>{prompt}</h2>
         <h2>
           <ReactMarkdown source={round.markup} />
         </h2>
         <br />
         <div className="voting">
-          {choices.map(choice => {
+          {choices.map((choice, i) => {
             return (
               <VoteButton
                 key={choice}
                 choice={choice}
+                choiceMarkup={choiceMarkups[i]}
                 myResponse={myResponse}
                 revealed={revealed}
                 realAnswer={answer}

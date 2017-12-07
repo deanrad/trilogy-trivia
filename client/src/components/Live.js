@@ -42,8 +42,10 @@ export const RoundView = ({ players, round }) => (
       Responses Received
     </div>
     <div style={{ clear: "both", padding: 25 }}>
-      <h1>{round.prompt}</h1>
-      <h2><ReactMarkdown source={round.markup} /></h2>
+      <h1 style={{ fontSize: "larger" }}>{round.prompt}</h1>
+      <h2>
+        <ReactMarkdown source={round.markup} />
+      </h2>
       {round.choices.map((choice, idx) => (
         <div
           key={choice}

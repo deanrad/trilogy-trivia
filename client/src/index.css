@@ -67,7 +67,7 @@ button.correct {
 }
 
 button.pending {
-  border: yellow dashed 2px;
+  border: orange solid 2px;
 }
 
 .response-count {
@@ -106,4 +106,12 @@ button.pending {
 
 .advance-button {
   height: 70px;
+}
+
+code {
+  color: black;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-weight: bold;
+  font-size: xx-large;
 }

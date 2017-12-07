@@ -1,19 +1,23 @@
 const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
+const uuid = require("uuid");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const http = require("http").Server(app);
+
+// Set up socket io on the same server as the http server
 const io = require("socket.io").listen(http);
-const uuid = require("uuid");
+
+const { sendOverSocketIO, persistToDB } = require("./subscribers");
 
 const passport = require("passport");
 const GitHubStrategy = require("passport-github2").Strategy;
 
-// localhost-3120
+// From the settings page: https://github.com/settings/applications/614725
 const GITHUB_CLIENT_ID = "37dabf371fa04f10829f";
 const GITHUB_CLIENT_SECRET = "6993702cd42d11cfc26acba327ced7390a879cda";
 
@@ -75,11 +79,13 @@ passport.use(
 );
 
 const store = require("./store/").store;
-const sendState = () => {
-  const state = store.getState();
+const broadcastState = state => {
   const { round, title, players } = state;
   io.emit("stateUpdate", { round, title, players });
 };
+
+sendOverSocketIO(store, broadcastState);
+persistToDB(store, { Game });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -137,7 +143,6 @@ http.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
-const clientById = new Set();
 io.on("connection", function(client) {
   console.log("Got a client connection!");
 
@@ -173,19 +178,4 @@ io.on("connection", function(client) {
       }
     });
   });
-});
-
-// Every time an action comes through, tell everyone the new state
-store.subscribe(function() {
-  const state = store.getState();
-  console.log("New state:", JSON.stringify(state, null, 2));
-  sendState();
-});
-
-store.subscribe(() => {
-  let game = store.getState();
-  let gameId = "nu-review";
-  Game.update({ gameId: gameId }, game, { upsert: true })
-    .then(x => console.log(x))
-    .catch(e => console.error(e));
 });

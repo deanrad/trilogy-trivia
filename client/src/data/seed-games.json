@@ -16,6 +16,7 @@
       "markup": "`/api/a/:id`",
       "answer": "/api/a/1",
       "choices": ["/api/a/1", "/api/b/2", "/api/c/3", "/api/d"],
+      "choiceMarkups": ["`/api/a/1`", "`/api/a/2`", "`/api/a/3`", "`/api/a/4`"],
       "categories": ["Node", "Express"],
       "responses": [
         {

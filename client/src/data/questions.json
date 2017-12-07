@@ -5,6 +5,7 @@
     "markup": "`/api/a/:id`",
     "answer": "/api/a/1",
     "choices": ["/api/a/1", "/api/b/2", "/api/c/3", "/api/d"],
+    "choiceMarkups": ["`/api/a/1`", "`/api/a/2`", "`/api/a/3`", "`/api/a/4`"],
     "categories": ["Node", "Express"],
     "links": [
       {
@@ -14,7 +15,7 @@
     ]
   },
   {
-    "questionKey": 2,
+    "questionKey": "RANDOM-10",
     "prompt": "JavaScript's creator spent this long creating it?",
     "choices": ["10 hours", "10 days", "10 weeks", "10 months"],
     "answer": "10 days",
