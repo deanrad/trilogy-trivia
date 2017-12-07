@@ -29,7 +29,7 @@ mongoose.Promise = Promise;
 mongoose.connect(mongoUri, {
   useMongoClient: true
 });
-const { Student, Game } = require("./models");
+const { Student, Game, Question } = require("./models");
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -179,3 +179,35 @@ io.on("connection", function(client) {
     });
   });
 });
+
+// Seeding - ensure any json questions are in the DB by their questionKey
+const questions = require("./data/questions.json");
+questions
+  .map(q => {
+    return q.questionKey
+      ? q
+      : Object.assign(q, {
+          // by default a question is keyed on a hash of its prompt
+          questionKey:
+            "Q-" +
+            (q.prompt || "")
+              .split("")
+              .map(v => v.charCodeAt(0))
+              .reduce((a, v) => (a + ((a << 7) + (a << 3))) ^ v)
+              .toString(16)
+        });
+  })
+  .forEach(q => {
+    Question.where({ questionKey: q.questionKey }).update(
+      { questionKey: q.questionKey },
+      { $set: q },
+      { upsert: true },
+      (err, result) => {
+        if (!err) {
+          console.log(`Updated question ${q.questionKey}`, result);
+        } else {
+          console.log({ err, result });
+        }
+      }
+    );
+  });

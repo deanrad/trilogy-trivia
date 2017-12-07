@@ -16,7 +16,7 @@ module.exports = {
       const game = store.getState();
       const gameId = "nu-review"; // TODO change for each cohort, game identity there can be
       Game.update({ gameId: gameId }, game, { upsert: true })
-        .then(x => console.log(x))
+        .then(({ nModified }) => {})
         .then(() => console.log(`Saved state to Games(${gameId})`))
         .catch(e => console.error("No saved state:\n", e));
     });

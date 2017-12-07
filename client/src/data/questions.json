@@ -1,7 +1,7 @@
 [
   {
     "questionKey": "EXPRESS-201",
-    "prompt": "Which route matches?",
+    "prompt": "Which route matches the following:",
     "markup": "`/api/a/:id`",
     "answer": "/api/a/1",
     "choices": ["/api/a/1", "/api/b/2", "/api/c/3", "/api/d"],
@@ -15,6 +15,24 @@
     ]
   },
   {
+    "questionKey": "BOOTSTRAP-01",
+    "prompt": "Bootstrap is a:",
+    "answer": "CSS Framework",
+    "choices": [
+      "Javascript Function",
+      "way to tweet",
+      "CSS Framework",
+      "piece of clothing"
+    ],
+    "categories": ["CSS", "Bootstrap"],
+    "links": [
+      {
+        "href": "https://getbootstrap.com",
+        "text": "Bootstrap 3 (4 beta)"
+      }
+    ]
+  },
+  {
     "questionKey": "RANDOM-10",
     "prompt": "JavaScript's creator spent this long creating it?",
     "choices": ["10 hours", "10 days", "10 weeks", "10 months"],
@@ -22,7 +40,6 @@
     "links": []
   },
   {
-    "questionKey": 5,
     "prompt": "All of these are examples of ORMs except?",
     "choices": [
       "Express",
@@ -34,7 +51,6 @@
     "links": []
   },
   {
-    "questionKey": 6,
     "prompt": "A package.json gains a dependency via?",
     "choices": [
       "npm init -y",
@@ -46,7 +62,6 @@
     "links": []
   },
   {
-    "questionKey": 8,
     "prompt":
       "All of these are reasons to render HTML on the server with Handlebars EXCEPT?",
     "choices": [
@@ -59,7 +74,6 @@
     "links": []
   },
   {
-    "questionKey": 9,
     "prompt":
       "Handlebars triple-mustache will allow HTML from your database into the page as-is?",
     "choices": [
@@ -76,13 +90,18 @@
     ]
   },
   {
-    "questionKey": 10,
     "prompt": "Heroku will configure your app's database string via?",
     "choices": [
       "process.argv[2]",
       "process.env.PORT",
       "process.argv.JAWSDB_URL",
       "process.env.JAWSDB_URL"
+    ],
+    "choiceMarkups": [
+      "`process.argv[2]`",
+      "`process.env.PORT`",
+      "`process.argv.JAWSDB_URL`",
+      "`process.env.JAWSDB_URL`"
     ],
     "answer": "process.env.JAWSDB_URL",
     "links": [
@@ -93,9 +112,8 @@
     ]
   },
   {
-    "questionKey": 11,
     "prompt": "(3 % 2 === 1) ? 'YAY' : 'BOO' will evaluate to what?",
-    "choices": ["YAY", "BOO", "null", "NaN"],
+    "choices": ["YAY", "'?'", "null", "NaN"],
     "answer": "YAY",
     "links": [
       {
