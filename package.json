@@ -13,7 +13,7 @@
     "installDeps": "yarn && cd client && yarn && cd -",
     "deploy":
       "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
