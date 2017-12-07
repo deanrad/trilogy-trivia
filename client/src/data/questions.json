@@ -33,6 +33,16 @@
     ]
   },
   {
+    "questionKey": "BS-02",
+    "prompt":
+      "It is literally possible to pull ones' self up by one's own boot straps",
+    "markup":
+      "![Boostraps](http://i2.wp.com/justlaurel.com/wp-content/uploads/2016/02/bootstraps.jpg)",
+    "answer": "false",
+    "choices": ["true", "false"],
+    "categories": ["random", "Bootstrap"]
+  },
+  {
     "questionKey": "RANDOM-10",
     "prompt": "JavaScript's creator spent this long creating it?",
     "choices": ["10 hours", "10 days", "10 weeks", "10 months"],
