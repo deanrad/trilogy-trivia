@@ -27,8 +27,8 @@ const eventCreators = socket => store => dispatch => ({
     });
   },
   advanceQuestion: () => {
-    let question = nextQuestion(store);
-    // TODO handle questions after the first
+    // TODO why do we look this up client-side? should be server-side.
+    const question = nextQuestion(store);
     socket.emit("action", {
       type: "ADVANCE_QUESTION",
       payload: Object.assign(question, { responses: [] })
