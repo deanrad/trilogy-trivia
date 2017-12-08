@@ -62,6 +62,16 @@ export default props => {
           Next Question
         </button>
       </div>
+      <div className="row">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            /* TODO start game / choose questions */
+          }}
+        >
+          Start Game
+        </button>
+      </div>
       <div className="row" style={{ margin: { top: 50 } }}>
         <button className="btn btn-warning">End Game</button>
       </div>
