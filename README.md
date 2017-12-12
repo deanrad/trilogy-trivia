@@ -5,7 +5,7 @@
 Watch the Overview video on [Youtube](https://www.youtube.com/watch?v=Tm6ia1D3WuM&feature=youtu.be)
 ([Slide Deck](https://s3.amazonaws.com/www.deanius.com/Trilobytes.pdf))
 
-![Trilogy Mockup](https://s3.amazonaws.com/www.deanius.com/img/trilobyte-screens.jpg)
+<img src="https://s3.amazonaws.com/www.deanius.com/img/trilobyte-screens.jpg" width="400" alt="Trilogy Mockup">
 
 # Question Bank
 
