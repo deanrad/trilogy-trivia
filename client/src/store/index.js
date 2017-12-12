@@ -5,15 +5,18 @@ const initialState = require("../data/gameState");
 // The heart of Rock & Roll right here, the reducer!
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ANSWER_QUESTION":
-      return Object.assign({}, state, {
-        round: Object.assign(state.round, {
-          responses: [...state.round.responses, action.payload]
-        })
-      });
     case "STATE_UPDATE":
       // overwrite top-level fields, but leave any extras
       return Object.assign({}, state, action.payload);
+    case "ANSWER_QUESTION":
+      return Object.assign({}, state, {
+        round: Object.assign(state.round, {
+          responses: [
+            ...state.round.responses,
+            Object.assign(action.payload, { createdAt: new Date() })
+          ]
+        })
+      });
     case "ANSWER_REVEAL":
       return Object.assign({}, state, {
         round: Object.assign(state.round, {
