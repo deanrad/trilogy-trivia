@@ -13,7 +13,7 @@ const reducer = (state, action) => {
         round: Object.assign(state.round, {
           responses: [
             ...state.round.responses,
-            Object.assign(action.payload, { createdAt: new Date() })
+            Object.assign(action.payload, { receivedAt: new Date() })
           ]
         })
       });
