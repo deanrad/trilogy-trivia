@@ -190,6 +190,7 @@ questions
     return q.questionKey
       ? q
       : Object.assign(q, {
+          createdAt: new Date(),
           // by default a question is keyed on a hash of its prompt
           questionKey:
             "Q-" +
@@ -198,6 +199,7 @@ questions
               .map(v => v.charCodeAt(0))
               .reduce((a, v) => (a + ((a << 7) + (a << 3))) ^ v)
               .toString(16)
+              .replace(/^-/, "")
         });
   })
   .forEach(q => {
