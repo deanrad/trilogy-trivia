@@ -15,6 +15,12 @@
     ]
   },
   {
+    "questionKey": "TB-01",
+    "prompt": "Cats or dogs?",
+    "answer": "cats",
+    "choices": ["cats", "dogs"]
+  },
+  {
     "questionKey": "BOOTSTRAP-01",
     "prompt": "Bootstrap is a:",
     "answer": "CSS Framework",
