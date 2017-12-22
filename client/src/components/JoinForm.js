@@ -26,7 +26,7 @@ class JoinForm extends React.Component {
       });
 
       // tell redux store
-      this.props.identifyClient({ username: userCookie })
+      this.props.identifyClient({ username: userCookie });
 
       // tell server
       this.props.signIn({ id: userCookie, name: userCookie });
@@ -41,6 +41,13 @@ class JoinForm extends React.Component {
         Thank you, {this.state.name}! The game will begin shortly...
         <div>
           <img src="/img/spinner.gif" alt="Waiting for the game to start" />
+        </div>
+        <div
+          style={{ float: "right", top: 10, right: 10, position: "absolute" }}
+        >
+          <a target="_blank" href="/remote">
+            🎛
+          </a>
         </div>
       </div>
     ) : (
