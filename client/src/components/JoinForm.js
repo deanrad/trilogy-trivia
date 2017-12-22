@@ -42,13 +42,15 @@ class JoinForm extends React.Component {
         <div>
           <img src="/img/spinner.gif" alt="Waiting for the game to start" />
         </div>
-        <div
-          style={{ float: "right", top: 10, right: 10, position: "absolute" }}
-        >
-          <a target="_blank" href="/remote">
-            🎛
-          </a>
-        </div>
+        {document.location.hostname.match(/localhost/) && (
+          <div
+            style={{ float: "right", top: 10, right: 10, position: "absolute" }}
+          >
+            <a target="_blank" href="/remote">
+              🎛
+            </a>
+          </div>
+        )}
       </div>
     ) : (
       <div style={{ textAlign: "center", height: 300, position: "relative" }}>
