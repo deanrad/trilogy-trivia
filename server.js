@@ -83,8 +83,8 @@ passport.use(
 
 const store = require("./store/").store;
 const broadcastState = state => {
-  const { round, title, players } = state;
-  io.emit("stateUpdate", { round, title, players });
+  const { round, nextRound, title, players } = state;
+  io.emit("stateUpdate", { round, nextRound, title, players });
 };
 
 sendOverSocketIO(store, broadcastState);
