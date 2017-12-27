@@ -115,3 +115,7 @@ code {
   font-weight: bold;
   font-size: xx-large;
 }
+
+.selected {
+  background-color: honeydew;
+}
