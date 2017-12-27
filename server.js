@@ -137,8 +137,14 @@ app.get("/student", serveUpReact);
 app.get("/live", serveUpReact);
 app.get("/remote", serveUpReact);
 
+app.get("/questions.json", (req, res) => {
+  Question.find()
+    .then(questions => res.json(questions))
+    .catch(err => res.json(err));
+});
+
 // Catch all (doesn't 404 if text/html contenttype unfortunately)
-app.get("*", function(req, res) {
+app.get("*", (req, res) => {
   res.status(404).send("Huh ???");
 });
 

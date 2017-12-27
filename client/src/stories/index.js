@@ -1,41 +1,42 @@
-import React from "react"
+import React from "react";
 
-import { storiesOf } from "@storybook/react"
-import { action } from "@storybook/addon-actions"
-import { linkTo } from "@storybook/addon-links"
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
+import { linkTo } from "@storybook/addon-links";
 
-import { Button, Welcome } from "@storybook/react/demo"
-import VoteButton from "../components/VoteButton"
-import Live, { SignIn, RoundView } from "../components/Live"
-import Remote from "../components/Remote"
-import Student from "../components/Student"
-import QuestionChooser from "../components/QuestionChooser"
-import "../index.css"
+import { Button, Welcome } from "@storybook/react/demo";
+import VoteButton from "../components/VoteButton";
+import Live, { SignIn, RoundView } from "../components/Live";
+import Remote from "../components/Remote";
+import Student from "../components/Student";
+import QuestionChooser from "../components/QuestionChooser";
+import "../index.css";
 
-import seedGames from "../data/seed-games.json"
-const exampleGame = seedGames[0]
+import seedGames from "../data/seed-games.json";
+import exampleQuestions from "../data/questions.json";
+const exampleGame = seedGames[0];
 exampleGame.identifyClient = () => {
-  console.log("mock identifyClient")
-}
+  console.log("mock identifyClient");
+};
 exampleGame.signIn = () => {
-  console.log("mock signIn")
-}
-const exampleRound = exampleGame.round
-console.log(exampleRound)
+  console.log("mock signIn");
+};
+const exampleRound = exampleGame.round;
+console.log(exampleRound);
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
-))
+));
 
-storiesOf("Live Screen/SignIn").add("Noone Joined", () => (
+storiesOf("Live Screen/SignIn", module).add("Noone Joined", () => (
   <SignIn players={{}} />
-))
+));
 
-storiesOf("Live Screen/SignIn").add("Some People Joined", () => (
+storiesOf("Live Screen/SignIn", module).add("Some People Joined", () => (
   <SignIn players={{ deanius: {} }} />
-))
+));
 
-storiesOf("Live Screen/Round View")
+storiesOf("Live Screen/Round View", module)
   .add("Recieving Answers", () => (
     <RoundView players={{ deanius: {}, esdras: {} }} round={exampleRound} />
   ))
@@ -44,23 +45,25 @@ storiesOf("Live Screen/Round View")
       players={{ deanius: {}, esdras: {} }}
       round={{ ...exampleRound, revealed: true }}
     />
-  ))
+  ));
 
-storiesOf("Remote Screen").add("During Game", () => <Remote {...exampleGame} />)
+storiesOf("Remote Screen", module).add("During Game", () => (
+  <Remote {...exampleGame} />
+));
 
-storiesOf("Student Screen").add("Not signed in", () => (
+storiesOf("Student Screen", module).add("Not signed in", () => (
   <Student {...exampleGame} />
-))
-storiesOf("Student Screen").add("Signed in, waiting", () => (
+));
+storiesOf("Student Screen", module).add("Signed in, waiting", () => (
   <Student {...exampleGame} />
-))
-storiesOf("Student Screen").add("Signed in, game on", () => (
+));
+storiesOf("Student Screen", module).add("Signed in, game on", () => (
   <Student {...exampleGame} />
-))
+));
 
-storiesOf("Question Chooser Screen").add("Signed in, game on", () => (
-  <QuestionChooser {...exampleGame} />
-))
+storiesOf("Question Chooser Screen", module).add("Signed in, game on", () => (
+  <QuestionChooser game={exampleGame} questions={exampleQuestions} />
+));
 
 storiesOf("VoteButton", module)
   .add("ViewOnly", () => <VoteButton choice="Not clickable" viewOnly={true} />)
@@ -100,4 +103,4 @@ storiesOf("VoteButton", module)
       realAnswer="/api/tables/1"
       revealed={true}
     />
-  ))
+  ));

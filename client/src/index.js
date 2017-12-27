@@ -5,8 +5,9 @@ import "./index.css";
 import Student from "./components/Student";
 import Live from "./components/Live";
 import Remote from "./components/Remote";
-import io from "socket.io-client"; // var io = require('socket.io-client)
-import { store } from "./store/"; // var store = require('./store/').store
+import { DataQuestionChooser } from "./components/QuestionChooser";
+import io from "socket.io-client";
+import { store } from "./store/";
 import eventCreators from "./store/actions";
 import { connect, Provider } from "react-redux";
 
@@ -47,6 +48,7 @@ const RoutedApp = () => (
       <Route exact path="/student" component={cStudent} />
       <Route exact path="/live" component={cLive} />
       <Route exact path="/remote" component={cRemote} />
+      <Route exact path="/questions" component={DataQuestionChooser} />
       <Route render={() => <h3>Not found</h3>} />
     </Switch>
   </Router>
