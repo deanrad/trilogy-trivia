@@ -132,11 +132,10 @@ const serveUpReact = (req, res) => {
   console.log("Session:", req.session);
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 };
-app.get("/", serveUpReact);
-app.get("/student", serveUpReact);
-app.get("/live", serveUpReact);
-app.get("/remote", serveUpReact);
-app.get("/questions", serveUpReact);
+
+// routes for which the server should respnd with the SPA
+const reactRoutes = ["/", "/student", "/live", "/remote", "/questions"];
+reactRoutes.forEach(route => app.get(route, serveUpReact));
 
 app.get("/questions.json", (req, res) => {
   Question.find()
