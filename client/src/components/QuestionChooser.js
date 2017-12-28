@@ -12,13 +12,15 @@ const allQuestionStyles = {
 export const DataQuestionChooser = class DataQuestionChooser extends React.Component {
   state = {
     questions: [],
-    categories: new Set()
+    categories: {}
   };
   componentDidMount() {
-    const categories = new Set();
+    const categories = {};
     axios.get("/questions.json").then(({ data: questions }) => {
       questions.forEach(q => {
-        (q.categories || []).forEach(cat => categories.add(cat));
+        (q.categories || []).forEach(cat => {
+          categories[cat] = (categories[cat] || 0) + 1;
+        });
       });
       this.setState({ questions, categories });
     });
@@ -52,10 +54,15 @@ export default class QuestionChooser extends React.Component {
 
   render() {
     let { questions = [] } = this.props;
-    let options = Array.from(this.props.categories).map(cat => ({
-      label: cat,
-      value: cat
-    }));
+    let categories = this.props.categories;
+    let options = Object.keys(categories)
+      .sort()
+      .map(cat => {
+        return {
+          label: `${cat} (${categories[cat]})`,
+          value: cat
+        };
+      });
     return (
       <div>
         <Select
