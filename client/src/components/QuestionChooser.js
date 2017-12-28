@@ -30,7 +30,7 @@ export const DataQuestionChooser = class DataQuestionChooser extends React.Compo
     });
   }
   render() {
-    return <QuestionChooser {...this.state} />;
+    return <QuestionChooser {...this.props} {...this.state} />;
   }
 };
 
@@ -59,10 +59,14 @@ export default class QuestionChooser extends React.Component {
     const questions = this.props.questions.filter(
       q =>
         intersect(catValues, q.categories).length > 0 ||
-        q.categories.length === 0 && catValues.includes("Uncategorized")
+        (q.categories.length === 0 && catValues.includes("Uncategorized"))
     );
 
     this.setState({ selected: questions });
+  };
+
+  handleStartGame = () => {
+    this.props.chooseQuestions(this.state.selected);
   };
 
   render() {
@@ -78,28 +82,43 @@ export default class QuestionChooser extends React.Component {
       });
     return (
       <div>
-        <Select
-          multi={true}
-          options={options}
-          value={this.state.selectedCats}
-          onChange={this.handleCatSelect}
-        />
-        <div style={allQuestionStyles}>
-          {questions.map(q => {
-            const isSelected = this.state.selected.includes(q);
-            return (
-              <div
-                key={q.questionKey}
-                onClick={() => {
-                  this.toggleSelection(q);
-                }}
-                className={isSelected ? "selected" : ""}
-              >
-                <dt>{q.questionKey}</dt>
-                <dd>{q.prompt}</dd>
-              </div>
-            );
-          })}
+        <div className="row">
+          <div className="col-sm-12 col-md-6" style={{ marginBottom: 10 }}>
+            <Select
+              multi={true}
+              options={options}
+              value={this.state.selectedCats}
+              onChange={this.handleCatSelect}
+            />
+          </div>
+          <div className="col-sm-12 col-md-6">
+            <button
+              className="btn btn-primary"
+              id="question-start"
+              onClick={this.handleStartGame}
+            >
+              Start Game
+            </button>
+          </div>
+        </div>
+        <div className="row">
+          <div style={allQuestionStyles}>
+            {questions.map(q => {
+              const isSelected = this.state.selected.includes(q);
+              return (
+                <div
+                  key={q.questionKey}
+                  onClick={() => {
+                    this.toggleSelection(q);
+                  }}
+                  className={isSelected ? "selected" : ""}
+                >
+                  <dt>{q.questionKey}</dt>
+                  <dd>{q.prompt}</dd>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

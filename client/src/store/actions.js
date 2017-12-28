@@ -51,6 +51,14 @@ const eventCreators = socket => store => dispatch => ({
     socket.emit("action", {
       type: "SHOW_STATS"
     });
+  },
+  chooseQuestions: questions => {
+    socket.emit("action", {
+      type: "CHOOSE_QUESTIONS",
+      payload: {
+        questions
+      }
+    });
   }
 });
 

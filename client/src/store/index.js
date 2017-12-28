@@ -52,16 +52,21 @@ const reducer = (state, action) => {
       // eslint-disable-next-line no-unused-vars
       let players = Object.assign({}, state.players);
       delete players[action.payload.id];
-      return Object.assign(state, { players });
+      return Object.assign({}, state, { players });
     case "ADVANCE_QUESTION":
       // const { round, nextRound } = action.payload
       const round = action.payload;
       const nextRound = { prompt: "TODO load next question" };
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         round: Object.assign({}, round, {
           label: ((state.round && state.round.label) || 0) + 1
         }),
         nextRound
+      });
+    case "CHOOSE_QUESTIONS":
+      const { questions } = action.payload;
+      return Object.assign(state, {
+        questions
       });
     default:
       return state;

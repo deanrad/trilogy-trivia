@@ -39,6 +39,9 @@ const dispatchOverSocket = eventCreators(socket)(store);
 const cStudent = connect(justState, dispatchOverSocket)(Student);
 const cLive = connect(justState, dispatchOverSocket)(Live);
 const cRemote = connect(justState, dispatchOverSocket)(Remote);
+const cDataQuestionChooser = connect(justState, dispatchOverSocket)(
+  DataQuestionChooser
+);
 
 const RoutedApp = () => (
   <Router>
@@ -48,7 +51,7 @@ const RoutedApp = () => (
       <Route exact path="/student" component={cStudent} />
       <Route exact path="/live" component={cLive} />
       <Route exact path="/remote" component={cRemote} />
-      <Route exact path="/questions" component={DataQuestionChooser} />
+      <Route exact path="/questions" component={cDataQuestionChooser} />
       <Route render={() => <h3>Not found</h3>} />
     </Switch>
   </Router>
