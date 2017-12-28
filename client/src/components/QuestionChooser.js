@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import Select from "react-select";
 import "react-select/dist/react-select.css";
+import intersect from "lodash.intersection";
 
 const allQuestionStyles = {
   border: "1px solid black",
@@ -15,9 +16,12 @@ export const DataQuestionChooser = class DataQuestionChooser extends React.Compo
     categories: {}
   };
   componentDidMount() {
-    const categories = {};
+    const categories = { Uncategorized: 0 };
     axios.get("/questions.json").then(({ data: questions }) => {
       questions.forEach(q => {
+        if (q.categories.length === 0) {
+          categories.Uncategorized += 1;
+        }
         (q.categories || []).forEach(cat => {
           categories[cat] = (categories[cat] || 0) + 1;
         });
@@ -50,6 +54,15 @@ export default class QuestionChooser extends React.Component {
 
   handleCatSelect = selectedCats => {
     this.setState({ selectedCats });
+
+    const catValues = selectedCats.map(opt => opt.value);
+    const questions = this.props.questions.filter(
+      q =>
+        intersect(catValues, q.categories).length > 0 ||
+        q.categories.length === 0 && catValues.includes("Uncategorized")
+    );
+
+    this.setState({ selected: questions });
   };
 
   render() {
