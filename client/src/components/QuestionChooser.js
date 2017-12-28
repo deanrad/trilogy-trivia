@@ -67,6 +67,8 @@ export default class QuestionChooser extends React.Component {
 
   handleStartGame = () => {
     this.props.chooseQuestions(this.state.selected);
+    this.props.advanceQuestion();
+    this.props.history.push("/remote");
   };
 
   render() {

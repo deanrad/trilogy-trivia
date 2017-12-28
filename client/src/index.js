@@ -10,6 +10,7 @@ import io from "socket.io-client";
 import { store } from "./store/";
 import eventCreators from "./store/actions";
 import { connect, Provider } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 const url =
   process.env.NODE_ENV === "production"
@@ -39,8 +40,8 @@ const dispatchOverSocket = eventCreators(socket)(store);
 const cStudent = connect(justState, dispatchOverSocket)(Student);
 const cLive = connect(justState, dispatchOverSocket)(Live);
 const cRemote = connect(justState, dispatchOverSocket)(Remote);
-const cDataQuestionChooser = connect(justState, dispatchOverSocket)(
-  DataQuestionChooser
+const cDataQuestionChooser = withRouter(
+  connect(justState, dispatchOverSocket)(DataQuestionChooser)
 );
 
 const RoutedApp = () => (
