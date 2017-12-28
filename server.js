@@ -136,6 +136,7 @@ app.get("/", serveUpReact);
 app.get("/student", serveUpReact);
 app.get("/live", serveUpReact);
 app.get("/remote", serveUpReact);
+app.get("/questions", serveUpReact);
 
 app.get("/questions.json", (req, res) => {
   Question.find()
