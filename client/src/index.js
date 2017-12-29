@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
-import Student from "./components/Student";
-import Live from "./components/Live";
-import Remote from "./components/Remote";
-import { DataQuestionChooser } from "./components/QuestionChooser";
+import {
+  Live,
+  Student,
+  Remote,
+  DataQuestionChooser,
+  Results
+} from "./components/";
 import io from "socket.io-client";
 import { store } from "./store/";
 import eventCreators from "./store/actions";
@@ -35,7 +38,11 @@ socket.on("identify", function(uuid) {
   });
 });
 
-const justState = state => state;
+const justState = state => {
+  // stay out of react router's way
+  state._history = state.history;
+  return state;
+};
 const dispatchOverSocket = eventCreators(socket)(store);
 const cStudent = connect(justState, dispatchOverSocket)(Student);
 const cLive = connect(justState, dispatchOverSocket)(Live);
@@ -43,6 +50,7 @@ const cRemote = connect(justState, dispatchOverSocket)(Remote);
 const cDataQuestionChooser = withRouter(
   connect(justState, dispatchOverSocket)(DataQuestionChooser)
 );
+const cResults = connect(justState, dispatchOverSocket)(Results);
 
 const RoutedApp = () => (
   <Router>
@@ -53,6 +61,7 @@ const RoutedApp = () => (
       <Route exact path="/live" component={cLive} />
       <Route exact path="/remote" component={cRemote} />
       <Route exact path="/questions" component={cDataQuestionChooser} />
+      <Route exact path="/results" component={cResults} />
       <Route render={() => <h3>Not found</h3>} />
     </Switch>
   </Router>

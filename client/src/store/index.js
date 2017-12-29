@@ -55,10 +55,12 @@ const reducer = (state, action) => {
       return Object.assign({}, state, { players });
     case "ADVANCE_QUESTION":
       const { question, nextPrompt } = action.payload;
+      const qWithResponses = state.round;
       return Object.assign({}, state, {
         round: Object.assign({}, question, { responses: [] }),
         nextRound: { prompt: nextPrompt },
-        curQuestionIdx: state.curQuestionIdx + 1
+        curQuestionIdx: state.curQuestionIdx + 1,
+        history: qWithResponses ? [...(state.history || []), qWithResponses] : []
       });
     case "CHOOSE_QUESTIONS":
       const { questions } = action.payload;

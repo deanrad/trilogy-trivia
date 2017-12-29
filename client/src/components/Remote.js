@@ -72,7 +72,9 @@ export default props => {
         </Link>
       </div>
       <div className="row" style={{ margin: { top: 50 } }}>
-        <button className="btn btn-warning">End Game</button>
+        <Link to="/results">
+          <button className="btn btn-warning">End Game</button>
+        </Link>
       </div>
     </div>
   );

@@ -83,14 +83,23 @@ passport.use(
 
 const store = require("./store/").store;
 const broadcastState = state => {
-  const { round, nextRound, title, players, questions, curQuestionIdx } = state;
+  const {
+    round,
+    nextRound,
+    title,
+    players,
+    questions,
+    curQuestionIdx,
+    history
+  } = state;
   io.emit("stateUpdate", {
     round,
     nextRound,
     title,
     players,
     questions,
-    curQuestionIdx
+    curQuestionIdx,
+    history
   });
 };
 
