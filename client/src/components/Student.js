@@ -3,6 +3,7 @@ import "./Student.css";
 import VoteButton from "./VoteButton";
 import JoinForm from "./JoinForm";
 import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 
 class Student extends Component {
   handleAnswer = choice => {
@@ -23,6 +24,15 @@ class Student extends Component {
       round || {};
     if (!username || !round) {
       return <JoinForm {...this.props} />;
+    }
+
+    if (!round.prompt) {
+      return (
+        <div>
+          <h1>Game over!</h1>
+          <Link to="/results">View your results</Link>
+        </div>
+      );
     }
 
     let myResponse =
