@@ -140,8 +140,16 @@ const serveUpReact = (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 };
 
-// routes for which the server should respnd with the SPA
-const reactRoutes = ["/", "/student", "/live", "/remote", "/questions"];
+// Set up routes for which the server should respond with the SPA.
+// This ensures any route handled by React is reloadable from the server.
+const reactRoutes = [
+  "/",
+  "/student",
+  "/live",
+  "/remote",
+  "/questions",
+  "/results"
+];
 reactRoutes.forEach(route => app.get(route, serveUpReact));
 
 app.get("/questions.json", (req, res) => {
