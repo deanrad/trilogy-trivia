@@ -1,14 +1,3 @@
-const questions = require("../data/questions.json");
-
-const nextQuestion = store => {
-  let current = store.getState().round;
-  if (!current) return questions[0];
-  let { prompt } = current || {};
-  let idx = questions.findIndex(q => q.prompt === prompt);
-  let nextIdx = idx + 1;
-  return questions[nextIdx];
-};
-
 // mapDispatchToProps
 const eventCreators = socket => store => dispatch => ({
   revealAnswer: () => {
@@ -27,11 +16,8 @@ const eventCreators = socket => store => dispatch => ({
     });
   },
   advanceQuestion: () => {
-    // TODO why do we look this up client-side? should be server-side.
-    const question = nextQuestion(store);
     socket.emit("action", {
-      type: "ADVANCE_QUESTION",
-      payload: Object.assign(question, { responses: [] })
+      type: "ADVANCE_QUESTION"
     });
   },
   signIn: ({ id, name }) => {

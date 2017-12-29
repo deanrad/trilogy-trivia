@@ -5,10 +5,10 @@ module.exports = {
       const state = store.getState();
 
       // omit wordy fields
-      state.questions =
-        state.questions && state.questions.length > 0
-          ? [state.questions.length]
-          : null;
+      // state.questions =
+      //   state.questions && state.questions.length > 0
+      //     ? [state.questions.length]
+      //     : null;
 
       // log it on console
       console.log("New state:", JSON.stringify(state, null, 2));

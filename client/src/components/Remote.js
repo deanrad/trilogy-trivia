@@ -1,5 +1,6 @@
 import React from "react";
 import { createSelector } from "reselect";
+import { Link } from "react-router-dom";
 
 // unmemoized: works, but creates new object
 // let getUserNames = state => Object.keys(state.players).map(p => state.players[p].name)
@@ -19,28 +20,31 @@ export default props => {
   let {
     title,
     round,
+    questions,
+    curQuestionIdx,
     nextRound,
     revealAnswer,
     advanceQuestion,
     showStats
   } = props;
-  let { answer } = round || {};
+  let { answer, prompt } = round || {};
   let nextRoundPrompt = (nextRound || {}).prompt;
 
   let users = getUserNames(props);
 
   return (
     <div>
+      <h4 style={{ float: "right" }}>{title}</h4>
       <div className="row answer-remote" style={{ float: "right" }}>
         Signed on: {users.join(",")} <br />
-        Question 1/5 <br />
+        Question {curQuestionIdx}/ {questions && questions.length} <br />
       </div>
       <div className="row answer-remote" style={{ float: "left" }}>
-        Answer: ({answer})<br />
+        Current: {prompt}({answer})
+        <br />
         Next: "{nextRoundPrompt}"
         <br />
       </div>
-      <h4 style={{ float: "right" }}>{title}</h4>
       <div style={{ clear: "both" }} />
       <div className="row">
         <div className="col-sm">
@@ -63,14 +67,9 @@ export default props => {
         </button>
       </div>
       <div className="row">
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            /* TODO start game / choose questions */
-          }}
-        >
-          Start Game
-        </button>
+        <Link to="/questions">
+          <button className="btn btn-primary">Choose Questions</button>
+        </Link>
       </div>
       <div className="row" style={{ margin: { top: 50 } }}>
         <button className="btn btn-warning">End Game</button>

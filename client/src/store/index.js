@@ -54,19 +54,18 @@ const reducer = (state, action) => {
       delete players[action.payload.id];
       return Object.assign({}, state, { players });
     case "ADVANCE_QUESTION":
-      // const { round, nextRound } = action.payload
-      const round = action.payload;
-      const nextRound = { prompt: "TODO load next question" };
+      const { question, nextPrompt } = action.payload;
       return Object.assign({}, state, {
-        round: Object.assign({}, round, {
-          label: ((state.round && state.round.label) || 0) + 1
-        }),
-        nextRound
+        round: Object.assign({}, question, { responses: [] }),
+        nextRound: { prompt: nextPrompt },
+        curQuestionIdx: state.curQuestionIdx + 1
       });
     case "CHOOSE_QUESTIONS":
       const { questions } = action.payload;
       return Object.assign(state, {
-        questions
+        questions,
+        nextRound: { prompt: questions[0].prompt },
+        curQuestionIdx: 0
       });
     default:
       return state;

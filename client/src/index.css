@@ -95,7 +95,8 @@ button.pending {
   font-weight: bold;
 }
 
-.row button {
+.row button,
+a {
   width: 100%;
   margin: 10px;
 }

@@ -83,8 +83,15 @@ passport.use(
 
 const store = require("./store/").store;
 const broadcastState = state => {
-  const { round, nextRound, title, players } = state;
-  io.emit("stateUpdate", { round, nextRound, title, players });
+  const { round, nextRound, title, players, questions, curQuestionIdx } = state;
+  io.emit("stateUpdate", {
+    round,
+    nextRound,
+    title,
+    players,
+    questions,
+    curQuestionIdx
+  });
 };
 
 sendOverSocketIO(store, broadcastState);
@@ -174,6 +181,21 @@ io.on("connection", function(client) {
 
   client.on("action", function(action) {
     console.log("Received an action:", action);
+
+    // fill in the payload of this server side
+    if (action.type === "ADVANCE_QUESTION") {
+      const state = store.getState();
+      const { curQuestionIdx } = state;
+      const first = state.questions[curQuestionIdx];
+      const second = state.questions[curQuestionIdx + 1];
+
+      action.payload = {
+        question: first,
+        nextPrompt: second ? second.prompt : "[End of Game!]"
+      };
+      console.log(action);
+    }
+
     store.dispatch(action);
   });
 
