@@ -117,6 +117,13 @@ code {
   font-size: xx-large;
 }
 
+.results code {
+  color: black;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: medium;
+}
+
 .selected {
   background-color: honeydew;
 }
@@ -124,4 +131,8 @@ code {
 #question-start {
   margin-top: 0px;
   margin-left: 0px;
+}
+
+.results {
+  margin-bottom: 15px;
 }
