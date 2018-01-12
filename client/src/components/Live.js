@@ -46,7 +46,7 @@ export const RoundView = ({ players, round }) => (
       <h2>
         <ReactMarkdown source={round.markup} />
       </h2>
-      {round.choices
+      {(round.choices || [])
         .filter(c => !round.revealed || c === round.answer)
         .map((choice, idx) => (
           <div
@@ -70,9 +70,7 @@ export const RoundView = ({ players, round }) => (
             round.links.length &&
             round.links.map(({ text, href }) => (
               <p key={href}>
-                <a href={href} target="_blank">
-                  {text}: {href}
-                </a>
+                <a href={href}>{text}</a>
               </p>
             ))}
         </div>

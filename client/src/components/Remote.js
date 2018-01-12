@@ -51,7 +51,11 @@ export default props => {
       <div style={{ clear: "both" }} />
       <div className="row">
         <div className="col-sm">
-          <button className="btn btn-primary" onClick={revealAnswer}>
+          <button
+            id="btn-reveal"
+            className="btn btn-primary"
+            onClick={revealAnswer}
+          >
             Reveal Answer
           </button>
         </div>
@@ -64,7 +68,10 @@ export default props => {
       <div className="row">
         <button
           className="btn btn-primary advance-button"
-          onClick={advanceQuestion}
+          onClick={() => {
+            advanceQuestion();
+            document.getElementById("btn-reveal").focus();
+          }}
         >
           Next Question<br />
           <i>{nextRoundPrompt}</i>
