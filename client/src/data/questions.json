@@ -174,5 +174,57 @@
         "text": "The original, 8 page PDF describing the workings of Bitcoin"
       }
     ]
+  },
+  {
+    "questionKey": "CRYPTO-02",
+    "prompt": "A private key can be used to spend Bitcoin more than once.",
+    "choices": ["True", "False"],
+    "answer": "False",
+    "categories": ["Cryptocurrency"],
+    "explanation":
+      "Once an address has value moved from it, it is marked 'spent'. Any change from the transaction goes into a separate address, with its own distinct private key.",
+    "links": [
+      {
+        "href": "https://en.bitcoin.it/wiki/Private_key#Summary",
+        "text": "Once spent, a private key becomes worthless"
+      }
+    ]
+  },
+  {
+    "questionKey": "CRYPTO-03",
+    "prompt": "A paper wallet can spend some now, some later.",
+    "choices": ["True", "False"],
+    "answer": "False",
+    "categories": ["Cryptocurrency"],
+    "explanation": "",
+    "links": [
+      {
+        "href": "https://en.bitcoin.it/wiki/Private_key#Summary",
+        "text": "Once spent, a private key becomes worthless"
+      }
+    ]
+  },
+  {
+    "questionKey": "CRYPTO-07",
+    "prompt":
+      "Which is true of the relationships between public and private keys?",
+    "choices": [
+      "It is infeasible to create the public key from the private key.",
+      "It is infeasible to create the private key from the public key.",
+      "The public key is used to decrypt a message",
+      "The public key is used to sign a message (link it to a sender)."
+    ],
+    "answer": "It is infeasible to create the private key from the public key.",
+    "categories": ["Cryptocurrency", "CS"],
+    "explanation":
+      "The public key IS in fact deducible from the private key, and only the private key can be used to sign or decrypt.",
+    "links": [
+      {
+        "href":
+          "https://stackoverflow.com/questions/5244129/use-rsa-private-key-to-generate-public-key",
+        "text":
+          "How to generate a private key, and get its public key from it (StackOverflow)"
+      }
+    ]
   }
 ]

@@ -46,19 +46,23 @@ export const RoundView = ({ players, round }) => (
       <h2>
         <ReactMarkdown source={round.markup} />
       </h2>
-      {round.choices.map((choice, idx) => (
-        <div
-          key={choice}
-          className={
-            choice === round.answer && round.revealed ? "correct-answer" : ""
-          }
-        >
-          <div className="live-answer">
-            <span className="live-label">{String.fromCharCode(65 + idx)}</span>
-            {choice}
+      {round.choices
+        .filter(c => !round.revealed || c === round.answer)
+        .map((choice, idx) => (
+          <div
+            key={choice}
+            className={
+              choice === round.answer && round.revealed ? "correct-answer" : ""
+            }
+          >
+            <div className="live-answer">
+              <span className="live-label">
+                {String.fromCharCode(65 + idx)}
+              </span>
+              {choice}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
       {round.revealed && (
         <div>
           <h3>Links</h3>
@@ -66,7 +70,7 @@ export const RoundView = ({ players, round }) => (
             round.links.length &&
             round.links.map(({ text, href }) => (
               <p key={href}>
-                <a href={href}>
+                <a href={href} target="_blank">
                   {text}: {href}
                 </a>
               </p>

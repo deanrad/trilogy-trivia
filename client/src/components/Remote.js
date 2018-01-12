@@ -34,16 +34,19 @@ export default props => {
 
   return (
     <div>
-      <h4 style={{ float: "right" }}>{title}</h4>
+      <h4 style={{ float: "right" }}>
+        <a target="_blank" href="/student">
+          {title}
+        </a>
+      </h4>
       <div className="row answer-remote" style={{ float: "right" }}>
         Signed on: {users.join(",")} <br />
         Question {curQuestionIdx}/ {questions && questions.length} <br />
       </div>
       <div className="row answer-remote" style={{ float: "left" }}>
-        Current: {prompt}({answer})
+        Current: {prompt}
         <br />
-        Next: "{nextRoundPrompt}"
-        <br />
+        <span style={{ color: "gray" }}>Answer: {answer}</span>
       </div>
       <div style={{ clear: "both" }} />
       <div className="row">
@@ -63,7 +66,8 @@ export default props => {
           className="btn btn-primary advance-button"
           onClick={advanceQuestion}
         >
-          Next Question
+          Next Question<br />
+          <i>{nextRoundPrompt}</i>
         </button>
       </div>
       <div className="row">
