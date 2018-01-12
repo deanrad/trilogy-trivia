@@ -21,3 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 client/node_modules/
 yarn.lock
+client/build

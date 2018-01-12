@@ -156,5 +156,23 @@
         "text": "The ternary (? :) operator on MDN"
       }
     ]
+  },
+  {
+    "questionKey": "CRYPTO-01",
+    "prompt": "The whitepaper which first described Bitcoin had which title?",
+    "choices": [
+      "“Bitcoin: Takin' Your Money since 2007”",
+      "“Bitcoin: Wouldn't you like to know?”",
+      "“Bitcoin: A Peer-to-Peer Electronic Cash System”",
+      "“Bitcoin: A Ponzi Scheme for Suckers”"
+    ],
+    "answer": "“Bitcoin: A Peer-to-Peer Electronic Cash System”",
+    "categories": ["Cryptocurrency"],
+    "links": [
+      {
+        "href": "https://bitcoin.org/bitcoin.pdf",
+        "text": "The original, 8 page PDF describing the workings of Bitcoin"
+      }
+    ]
   }
 ]
