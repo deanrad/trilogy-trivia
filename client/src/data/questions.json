@@ -226,5 +226,40 @@
           "How to generate a private key, and get its public key from it (StackOverflow)"
       }
     ]
+  },
+  {
+    "questionKey": "CRYPTO-08",
+    "prompt": "The balance of every Bitcoin address is publicly viewable.",
+    "choices": ["True", "False"],
+    "answer": "True",
+    "categories": ["Cryptocurrency"],
+    "explanation":
+      "Balances being publicly viewable is a design feature of Bitcoin, and has privacy implications, though the an address' owner is typically not known. This is possible because the address (public key) is safely sharable, not containing enough information to spend the money.",
+    "links": [
+      {
+        "href": "https://blockchain.info",
+        "text": "Blockchain Explorer (Blockchain.info)"
+      }
+    ]
+  },
+  {
+    "questionKey": "CRYPTO-09",
+    "prompt":
+      "Which steps will happen if you try and spend a bitcoin simultaneously on two different sides of the world?",
+    "choices": [
+      "Each vendor will get a confirmation that the spend was successful.",
+      "The two transaction end points will talk to each other to prevent the double-spend.",
+      "If each transaction becomes part of a block, the block with fewer confirmations will eventually be rejected.",
+      "The second transaction will immediately be declined."
+    ],
+    "answer":
+      "If each transaction becomes part of a block, the block with fewer confirmations will be rejected eventually.",
+    "categories": ["Cryptocurrency"],
+    "links": [
+      {
+        "href": "https://www.bitcoin.com/info/what-is-bitcoin-double-spending",
+        "text": "What is Bitcoin Double Spending? (bitcoin.com)"
+      }
+    ]
   }
 ]
