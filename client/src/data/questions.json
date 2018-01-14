@@ -261,5 +261,21 @@
         "text": "What is Bitcoin Double Spending? (bitcoin.com)"
       }
     ]
+  },
+  {
+    "questionKey": "CRYPTO-10",
+    "prompt":
+      "This Eastern nation told its citizens they must associate their real names with their bitcoin accounts, or incur large fines.",
+    "choices": ["China", "South Korea", "North Korea", "Japan"],
+    "answer": "South Korea",
+    "categories": ["Cryptocurrency"],
+    "links": [
+      {
+        "href":
+          "https://news.bitcoin.com/south-korea-crypto-traders-fines-new-system/?utm_source=news.bitcoin.com&utm_medium=widget&utm_campaign=News%20Widget",
+        "text":
+          "Crypto Traders Could Face Fines Under New System (news.bitcoin.com)"
+      }
+    ]
   }
 ]
