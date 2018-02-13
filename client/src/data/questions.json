@@ -277,5 +277,17 @@
           "Crypto Traders Could Face Fines Under New System (news.bitcoin.com)"
       }
     ]
+  },
+  {
+    "questionKey": "CRYPTO-07",
+    "prompt": "'Cold storage' of bitcoin refers to:",
+    "answer": "Physically securing a printed paper wallet",
+    "choices": [
+      "Generating a new address at walletgenerator.net",
+      "Physically securing a printed paper wallet",
+      "Converting the coin to dollars, and putting them in a safe",
+      "Using an wallet application on your computer or mobile device"
+    ],
+    "categories": ["Cryptocurrency"]
   }
 ]
