@@ -203,6 +203,11 @@ io.on("connection", function(client) {
     if (action.type === "ADVANCE_QUESTION") {
       const state = store.getState();
       const { curQuestionIdx } = state;
+      if (!state.questions) {
+        console.error(
+          "Need to choose questions before processing an action of type ADVANCE_QUESTION."
+        );
+      }
       const first = state.questions[curQuestionIdx];
       const second = state.questions[curQuestionIdx + 1];
 

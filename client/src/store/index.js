@@ -25,7 +25,9 @@ const reducer = (state, action) => {
       });
     case "SHOW_STATS":
       return Object.assign({}, state, {
-        showStats: true
+        round: Object.assign(state.round, {
+          showStats: true
+        })
       });
     case "CONNECTION_ADDED":
       return Object.assign({}, state, {
@@ -60,7 +62,9 @@ const reducer = (state, action) => {
         round: Object.assign({}, question, { responses: [] }),
         nextRound: { prompt: nextPrompt },
         curQuestionIdx: state.curQuestionIdx + 1,
-        history: qWithResponses ? [...(state.history || []), qWithResponses] : []
+        history: qWithResponses
+          ? [...(state.history || []), qWithResponses]
+          : []
       });
     case "CHOOSE_QUESTIONS":
       const { questions } = action.payload;

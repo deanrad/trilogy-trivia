@@ -78,6 +78,9 @@ export const RoundView = ({ players, round }) => (
     </div>
   </div>
 );
+const StatsView = props => {
+  return <div>TODO STATS</div>;
+};
 
 export default props => {
   let { title } = props;
@@ -87,7 +90,15 @@ export default props => {
       {/* TODO show SignIn before a round's begun,
             RoundView when the round's in progress
      */}
-      {props.round ? <RoundView {...props} /> : <SignIn {...props} />}
+      {props.round ? (
+        props.round.showStats ? (
+          <StatsView />
+        ) : (
+          <RoundView {...props} />
+        )
+      ) : (
+        <SignIn {...props} />
+      )}
     </div>
   );
 };
