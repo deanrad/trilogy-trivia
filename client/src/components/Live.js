@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import { OrdinalFrame } from "semiotic";
 
 export const SignIn = ({ title, players }) => {
   let url = document.location.href.replace(/\/\w+$/, "");
@@ -79,7 +80,24 @@ export const RoundView = ({ players, round }) => (
   </div>
 );
 const StatsView = props => {
-  return <div>TODO STATS</div>;
+  const barChartData = [
+    { choice: "True", responses: 3 },
+    { choice: "False", responses: 2 }
+  ];
+
+  return (
+    <div>
+      <OrdinalFrame
+        size={[300, 500]}
+        data={barChartData}
+        oAccessor={"choice"}
+        rAccessor={"responses"}
+        style={{ fill: "#00a2ce", stroke: "white" }}
+        type={"bar"}
+        oLabel={true}
+      />
+    </div>
+  );
 };
 
 export default props => {
@@ -92,7 +110,7 @@ export default props => {
      */}
       {props.round ? (
         props.round.showStats ? (
-          <StatsView />
+          <StatsView {...props} />
         ) : (
           <RoundView {...props} />
         )
