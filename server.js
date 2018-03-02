@@ -45,7 +45,7 @@ passport.deserializeUser(function(user, done) {
 //   profile), and invoke a callback with a user object.
 const callbackURL =
   process.env.NODE_ENV === "production"
-    ? "https://nu-review.herokuapp.com/auth/github/callback"
+    ? `${process.env.HOST_URI}/auth/github/callback`
     : "http://localhost:3001/auth/github/callback";
 
 passport.use(
