@@ -91,6 +91,10 @@ const StatsView = props => {
     };
   });
 
+  const axis = {
+    orient: "bottom"
+  };
+
   return (
     <div>
       <OrdinalFrame
@@ -106,7 +110,7 @@ const StatsView = props => {
         }}
         type={"bar"}
         oLabel={true}
-        axis={{ orient: "bottom" }}
+        axis={axis}
       />
     </div>
   );
