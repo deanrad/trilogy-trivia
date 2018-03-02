@@ -1,7 +1,7 @@
 module.exports = {
   round: null,
-  title: "NU Winter 2017 Review Game",
+  title: "Example WebSocket Trivia Game",
   players: {},
   currentConnectionCount: 0,
   maxConnectionCount: 0
-}
+};
