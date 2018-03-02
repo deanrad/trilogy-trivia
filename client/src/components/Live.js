@@ -94,13 +94,19 @@ const StatsView = props => {
   return (
     <div>
       <OrdinalFrame
-        size={[300, 500]}
+        size={[400, 400]}
         data={barChartData}
         oAccessor={"choice"}
         rAccessor={"responses"}
-        style={{ fill: "#00a2ce", stroke: "white" }}
+        style={{
+          fill: "#00a2ce",
+          stroke: "white",
+          top: 100,
+          clear: "both"
+        }}
         type={"bar"}
         oLabel={true}
+        axis={{ orient: "bottom" }}
       />
     </div>
   );
@@ -110,19 +116,23 @@ export default props => {
   let { title } = props;
   return (
     <div>
-      <h2 className="game-title">{title}</h2>
-      {/* TODO show SignIn before a round's begun,
+      <div className="row">
+        <h2 className="game-title">{title}</h2>
+        {/* TODO show SignIn before a round's begun,
             RoundView when the round's in progress
      */}
-      {props.round ? (
-        props.round.showStats ? (
-          <StatsView {...props} />
+      </div>
+      <div className="row">
+        {props.round ? (
+          props.round.showStats ? (
+            <StatsView {...props} />
+          ) : (
+            <RoundView {...props} />
+          )
         ) : (
-          <RoundView {...props} />
-        )
-      ) : (
-        <SignIn {...props} />
-      )}
+          <SignIn {...props} />
+        )}
+      </div>
     </div>
   );
 };
