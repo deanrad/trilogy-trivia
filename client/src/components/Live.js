@@ -80,10 +80,16 @@ export const RoundView = ({ players, round }) => (
   </div>
 );
 const StatsView = props => {
-  const barChartData = [
-    { choice: "True", responses: 3 },
-    { choice: "False", responses: 2 }
-  ];
+  // Looks like: [
+  //   { choice: "A", responses: 2 },
+  //   { choice: "B", responses: 2 }
+  // ]
+  const barChartData = props.round.choices.map((choice, index) => {
+    return {
+      choice: String.fromCharCode(65 + index),
+      responses: props.round.responses.filter(r => r.choice === choice).length
+    };
+  });
 
   return (
     <div>
