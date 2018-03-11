@@ -81,7 +81,7 @@ passport.use(
   )
 );
 
-const store = require("./store/").store;
+const store = require("./client/src/store/").store;
 const broadcastState = state => {
   const {
     round,
@@ -229,7 +229,7 @@ io.on("connection", function(client) {
 });
 
 // Seeding - ensure any json questions are in the DB by their questionKey
-const questions = require("./data/questions.json");
+const questions = require("./client/src/data/questions.json");
 questions
   .map(q => {
     return q.questionKey

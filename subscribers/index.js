@@ -11,7 +11,7 @@ module.exports = {
       //     : null;
 
       // log it on console
-      console.log("New state:", JSON.stringify(state, null, 2));
+      console.log("New state:", JSON.stringify(state.round, null, 2));
 
       // send it over the websocket
       broadcastState(state);
