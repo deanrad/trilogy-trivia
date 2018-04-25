@@ -191,20 +191,6 @@
     ]
   },
   {
-    "questionKey": "CRYPTO-03",
-    "prompt": "A paper wallet can spend some now, some later.",
-    "choices": ["True", "False"],
-    "answer": "False",
-    "categories": ["Cryptocurrency"],
-    "explanation": "",
-    "links": [
-      {
-        "href": "https://en.bitcoin.it/wiki/Private_key#Summary",
-        "text": "Once spent, a private key becomes worthless"
-      }
-    ]
-  },
-  {
     "questionKey": "CRYPTO-07",
     "prompt":
       "Which is true of the relationships between public and private keys?",
@@ -277,5 +263,17 @@
           "Crypto Traders Could Face Fines Under New System (news.bitcoin.com)"
       }
     ]
+  },
+  {
+    "questionKey": "CRYPTO-07",
+    "prompt": "'Cold storage' of bitcoin refers to:",
+    "answer": "Physically securing a printed paper wallet",
+    "choices": [
+      "Generating a new address at walletgenerator.net",
+      "Physically securing a printed paper wallet",
+      "Converting the coin to dollars, and putting them in a safe",
+      "Using an wallet application on your computer or mobile device"
+    ],
+    "categories": ["Cryptocurrency"]
   }
 ]

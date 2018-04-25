@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import { OrdinalFrame } from "semiotic";
 
 export const SignIn = ({ title, players }) => {
   let url = document.location.href.replace(/\/\w+$/, "");
@@ -78,16 +79,64 @@ export const RoundView = ({ players, round }) => (
     </div>
   </div>
 );
+const StatsView = props => {
+  // Looks like: [
+  //   { choice: "A", responses: 2 },
+  //   { choice: "B", responses: 2 }
+  // ]
+  const barChartData = props.round.choices.map((choice, index) => {
+    return {
+      choice: String.fromCharCode(65 + index),
+      responses: props.round.responses.filter(r => r.choice === choice).length
+    };
+  });
+
+  const axis = {
+    orient: "bottom"
+  };
+
+  return (
+    <div>
+      <OrdinalFrame
+        size={[400, 400]}
+        data={barChartData}
+        oAccessor={"choice"}
+        rAccessor={"responses"}
+        style={{
+          fill: "#00a2ce",
+          stroke: "white",
+          top: 100,
+          clear: "both"
+        }}
+        type={"bar"}
+        oLabel={true}
+        axis={axis}
+      />
+    </div>
+  );
+};
 
 export default props => {
   let { title } = props;
   return (
     <div>
-      <h2 className="game-title">{title}</h2>
-      {/* TODO show SignIn before a round's begun,
+      <div className="row">
+        <h2 className="game-title">{title}</h2>
+        {/* TODO show SignIn before a round's begun,
             RoundView when the round's in progress
      */}
-      {props.round ? <RoundView {...props} /> : <SignIn {...props} />}
+      </div>
+      <div className="row">
+        {props.round ? (
+          props.round.showStats ? (
+            <StatsView {...props} />
+          ) : (
+            <RoundView {...props} />
+          )
+        ) : (
+          <SignIn {...props} />
+        )}
+      </div>
     </div>
   );
 };

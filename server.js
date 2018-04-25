@@ -45,7 +45,7 @@ passport.deserializeUser(function(user, done) {
 //   profile), and invoke a callback with a user object.
 const callbackURL =
   process.env.NODE_ENV === "production"
-    ? "https://nu-review.herokuapp.com/auth/github/callback"
+    ? `${process.env.HOST_URI}/auth/github/callback`
     : "http://localhost:3001/auth/github/callback";
 
 passport.use(
@@ -203,6 +203,11 @@ io.on("connection", function(client) {
     if (action.type === "ADVANCE_QUESTION") {
       const state = store.getState();
       const { curQuestionIdx } = state;
+      if (!state.questions) {
+        console.error(
+          "Need to choose questions before processing an action of type ADVANCE_QUESTION."
+        );
+      }
       const first = state.questions[curQuestionIdx];
       const second = state.questions[curQuestionIdx + 1];
 
