@@ -40,7 +40,7 @@ class Student extends Component {
     return (
       <div>
         <div>{questionKey}</div>
-        <h2>{prompt}</h2>
+        {round.markup ? '' : <h2>prompt</h2>}
         <h2>
           <ReactMarkdown source={round.markup} />
         </h2>

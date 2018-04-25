@@ -275,5 +275,18 @@
       "Using an wallet application on your computer or mobile device"
     ],
     "categories": ["Cryptocurrency"]
+  },
+  {
+    "questionKey": "CRYPTO-200",
+    "prompt": "Which of the following are characteristics of a cryptographically secure hash function?",
+    "markup": "Which of the following are characteristics of a cryptographically secure hash function?\n\n * A. Collisions are unlikely\n * B. Similar inputs produce similar outputs\n * C. Any hash is equally likely (uniformly distributed).\n * D. The content is recoverable from its hash",
+    "answer": "A and C",
+    "choices": [
+      "A and C",
+      "B and A",
+      "C and D",
+      "All of the above"
+    ],
+    "categories": ["Cryptocurrency"]
   }
 ]
