@@ -13,11 +13,7 @@
     "react-scripts": "1.0.14",
     "react-select": "^1.1.0",
     "reselect": "^3.0.1",
-<<<<<<< HEAD
-    "semiotic": "^1.7.14",
-=======
     "semiotic": "^1.8.1",
->>>>>>> 8c14990ddd84ec72f06151f8ac6bc39a6024ca39
     "socket.io-client": "^2.0.4",
     "universal-cookie": "^2.1.2"
   },
