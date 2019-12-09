@@ -1,12 +1,11 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import { Button, Welcome } from "@storybook/react/demo";
+import { Welcome } from "@storybook/react/demo";
 import VoteButton from "../components/VoteButton";
-import Live, { SignIn, RoundView } from "../components/Live";
+import { SignIn, RoundView } from "../components/Live";
 import Remote from "../components/Remote";
 import Student from "../components/Student";
 import QuestionChooser from "../components/QuestionChooser";

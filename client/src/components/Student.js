@@ -20,8 +20,7 @@ class Student extends Component {
       choiceMarkups = [],
       answer,
       revealed
-    } =
-      round || {};
+    } = round || {};
     if (!username || !round) {
       return <JoinForm {...this.props} />;
     }
@@ -40,7 +39,7 @@ class Student extends Component {
     return (
       <div>
         <div>{questionKey}</div>
-        {round.markup ? '' : <h2>prompt</h2>}
+        {round.markup ? "" : <h2>{prompt}</h2>}
         <h2>
           <ReactMarkdown source={round.markup} />
         </h2>
@@ -62,15 +61,15 @@ class Student extends Component {
         </div>
         {revealed && (
           <div>
-            The Answer Was:<br />
+            The Answer Was:
+            <br />
             <div className="correct-answer">{answer}</div>
           </div>
         )}
 
-        {revealed &&
-          answer === myResponse.choice && (
-            <div className="praise">Way to go!</div>
-          )}
+        {revealed && answer === myResponse.choice && (
+          <div className="praise">Way to go!</div>
+        )}
       </div>
     );
   }
