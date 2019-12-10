@@ -2,6 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { linkTo } from "@storybook/addon-links";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { Welcome } from "@storybook/react/demo";
 import VoteButton from "../components/VoteButton";
@@ -23,10 +24,6 @@ exampleGame.signIn = () => {
 const exampleRound = exampleGame.round;
 console.log(exampleRound);
 
-storiesOf("Welcome", module).add("to Storybook", () => (
-  <Welcome showApp={linkTo("Button")} />
-));
-
 storiesOf("Live Screen/SignIn", module).add("Noone Joined", () => (
   <SignIn players={{}} />
 ));
@@ -47,7 +44,9 @@ storiesOf("Live Screen/Round View", module)
   ));
 
 storiesOf("Remote Screen", module).add("During Game", () => (
-  <Remote {...exampleGame} />
+  <Router>
+    <Remote {...exampleGame} />
+  </Router>
 ));
 
 storiesOf("Student Screen", module).add("Not signed in", () => (
@@ -61,11 +60,14 @@ storiesOf("Student Screen", module).add("Signed in, game on", () => (
 ));
 
 storiesOf("Question Chooser Screen", module).add("Signed in, game on", () => (
-  <QuestionChooser game={exampleGame} questions={exampleQuestions} />
+  <QuestionChooser
+    game={exampleGame}
+    questions={exampleQuestions}
+    categories={{}}
+  />
 ));
 
 storiesOf("VoteButton", module)
-  .add("ViewOnly", () => <VoteButton choice="Not clickable" viewOnly={true} />)
   .add("Initial", () => <VoteButton choice="/api/tables/1" />)
   .add("Answered/Chosen", () => (
     <VoteButton
