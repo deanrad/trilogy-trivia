@@ -21,7 +21,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "nodemon": "^1.11.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.2.1",
     "react-scripts": "^3.3.0"
   },
   "dependencies": {
