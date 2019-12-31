@@ -1,13 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-const displayStyle = ({
-  choice,
-  myResponse,
-  realAnswer,
-  revealed,
-  answerQuestion
-}) => {
+const displayStyle = ({ choice, myResponse, realAnswer, revealed }) => {
   let myChoice = myResponse && myResponse.choice;
 
   // they havent answered - no class

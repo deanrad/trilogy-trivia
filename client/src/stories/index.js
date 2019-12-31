@@ -1,10 +1,8 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { linkTo } from "@storybook/addon-links";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Welcome } from "@storybook/react/demo";
 import VoteButton from "../components/VoteButton";
 import { SignIn, RoundView } from "../components/Live";
 import Remote from "../components/Remote";
