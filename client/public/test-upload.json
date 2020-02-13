@@ -1,0 +1,11 @@
+[
+    {
+        "questionKey": "TUP-01",
+        "prompt": "Cats or dogs?",
+        "answer": "cats",
+        "choices": [
+            "cats",
+            "dogs"
+        ]
+    }
+]

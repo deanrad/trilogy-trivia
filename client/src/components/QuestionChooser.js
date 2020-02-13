@@ -70,6 +70,20 @@ export default class QuestionChooser extends React.Component {
     this.props.history.push("/remote");
   };
 
+  handleUpload = e => {
+    var fileread = new FileReader();
+    fileread.onload = e => {
+      const uploaded = JSON.parse(e.target.result);
+      this.setState({ selected: uploaded });
+    };
+    fileread.readAsText(e.target.files[0]);
+  };
+
+  constructor(props) {
+    super(props);
+    this.fileInputRef = React.createRef();
+  }
+
   render() {
     let { questions = [] } = this.props;
     let categories = this.props.categories;
@@ -92,7 +106,7 @@ export default class QuestionChooser extends React.Component {
               onChange={this.handleCatSelect}
             />
           </div>
-          <div className="col-sm-12 col-md-6">
+          <div className="col-sm-12 col-md-3">
             <button
               className="btn btn-primary"
               id="question-start"
@@ -100,6 +114,10 @@ export default class QuestionChooser extends React.Component {
             >
               Save Questions
             </button>
+          </div>
+          <div className="col-sm-12 col-md-3">
+            <input type="file" onChange={this.handleUpload}></input>
+            Upload
           </div>
         </div>
         <div className="row">
