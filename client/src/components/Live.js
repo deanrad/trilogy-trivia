@@ -15,13 +15,12 @@ export const SignIn = ({ title, players }) => {
         <div className="App-header">
           {
             <img
-              src="/img/trilobyte.jpg"
+              src="https://avatars3.githubusercontent.com/oa/221258?s=60&u=ac91a6c103572ef7b7703f16166f4e9dcd680936&v=4"
               className="App-logo"
               alt="logo"
               style={{ float: "right" }}
             />
           }
-          <h2>Introducing, Trilobytes of Trivia!</h2>
           <h1>
             Join Us at <span className="join-link">{link}</span> !
           </h1>
@@ -37,10 +36,8 @@ export const RoundView = ({ players, round }) => (
     <div className="response-count">
       Question {round.questionKey}
       <br />
-      {Math.min(Object.keys(players).length, (round.responses || []).length)}/{
-        Object.keys(players).length
-      }{" "}
-      Responses Received
+      {Math.min(Object.keys(players).length, (round.responses || []).length)}/
+      {Object.keys(players).length} Responses Received
     </div>
     <div style={{ clear: "both", padding: 25 }}>
       <h1 style={{ fontSize: "larger" }}>{round.prompt}</h1>

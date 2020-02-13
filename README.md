@@ -11,7 +11,7 @@ Watch the Overview video on [Youtube](https://www.youtube.com/watch?v=Tm6ia1D3Wu
 
 ## [How to Contribute!](https://www.youtube.com/watch?v=pYLsy-6UZdQ) (7:30 minutes, Youtube)
 
-Help us contribute to this! Because of the way the repo is organized, simply dumping questions/answers/links into [questions.json](./client/data/questions.json) would suffice to share questions across all cohorts, if merged in via Pull Requests.
+Help us contribute to this! Because of the way the repo is organized, simply dumping questions/answers/links into [questions.json](./client/src/data/questions.json) would suffice to share questions across all cohorts, if merged in via Pull Requests.
 
 Per [Issue #42](https://github.com/deanius/trilogy-trivia/issues/42), we could deal with choosing a subset of questions at the beginning of the round, and allow categorizing of the questions via topic/module. This bears a longer discussion, but right now, fork/edit/deploy will suffice for anyone to try this tool out with their own questions.
 

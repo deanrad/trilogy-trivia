@@ -69,5 +69,178 @@
     "categories": [
       "DevHumor"
     ]
+  },
+  {
+    "questionKey": "FEB-01",
+    "prompt": "Banannas are a good source of ???",
+    "answer": "potassium",
+    "choices": [
+      "meat",
+      "calcium",
+      "potassium",
+      "tryptophan"
+    ],
+    "categories": [
+      "Feb"
+    ]
+  },
+  {
+    "questionKey": "FEB-02",
+    "prompt": "What is the year of the initial commit in the ue repo?",
+    "answer": "June 2012",
+    "choices": [
+      "2012",
+      "2013",
+      "2014",
+      "2015"
+    ],
+    "categories": [
+      "Feb"
+    ]
+  },
+  {
+    "questionKey": "FEB-03",
+    "markup": "# Fried chick or dogs?\n![](https://i.postimg.cc/xTDB90q5/screenshot.png)",
+    "answer": "dogs",
+    "choices": [
+      "fried chicken",
+      "dogs"
+    ],
+    "categories": [
+      "Feb"
+    ]
+  },
+  {
+    "questionKey": "FEB-04",
+    "prompt": "Which Linux distribution does our stuff run on in Heroku?",
+    "answer": "Ubuntu",
+    "choices": [
+      "Redhat",
+      "Ubuntu",
+      "Arch",
+      "Mandrake"
+    ],
+    "categories": [
+      "Feb"
+    ]
+  },
+  {
+    "questionKey": "FEB-05",
+    "prompt": "Grace Hopper was a famous programmer and ???",
+    "answer": "Bram Moolenaar",
+    "choices": [
+      "US Navy rear admiral",
+      "Beer enthusiast",
+      "Rapper - aka G-Hopz",
+      "Amateur winemaker"
+    ],
+    "categories": [
+      "Feb"
+    ]
+  },
+  {
+    "questionKey": "LO-01",
+    "prompt": "What is the most widely eaten fish in the world?",
+    "answer": "herring",
+    "choices": [
+      "salmon",
+      "cod",
+      "herring",
+      "perch"
+    ],
+    "categories": [
+      "Food"
+    ]
+  },
+  {
+    "questionKey": "LO-02",
+    "markup": "Which planet spins the fastest?",
+    "answer": "Jupiter",
+    "choices": [
+      "Earth",
+      "Venus",
+      "Jupiter",
+      "Uranus"
+    ],
+    "categories": [
+      "Space"
+    ]
+  },
+  {
+    "questionKey": "LO-03",
+    "markup": "Which planet spins the slowest?",
+    "answer": "Venus",
+    "choices": [
+      "Earth",
+      "Venus",
+      "Jupiter",
+      "Uranus"
+    ],
+    "categories": [
+      "Space"
+    ]
+  },
+  {
+    "questionKey": "LO-03",
+    "markup": "What is the longers distance you can travel by foot without crossing major water barriers",
+    "answer": "13,589 Km",
+    "choices": [
+      "15,247 Km",
+      "13,589 Km",
+      "8,983 Km",
+      "3,582 Km"
+    ],
+    "categories": [
+      "why?"
+    ]
+  },
+  {
+    "questionKey": "DR-10",
+    "prompt": "JavaScript's creator spent this long creating it?",
+    "choices": [
+      "10 hours",
+      "10 days",
+      "10 weeks",
+      "10 months"
+    ],
+    "answer": "10 days",
+    "categories": [
+      "JavaScript"
+    ]
+  },
+  {
+    "questionKey": "DR-02",
+    "prompt": "The whitepaper which first described Bitcoin had which title?",
+    "choices": [
+      "“Bitcoin: Takin' Your Money since 2007”",
+      "“Bitcoin: Wouldn't you like to know?”",
+      "“Bitcoin: A Peer-to-Peer Electronic Cash System”",
+      "“Bitcoin: A Ponzi Scheme for Suckers”"
+    ],
+    "answer": "“Bitcoin: A Peer-to-Peer Electronic Cash System”",
+    "categories": [
+      "Crypto"
+    ],
+    "links": [
+      {
+        "href": "https://bitcoin.org/bitcoin.pdf",
+        "text": "The original, 8 page PDF describing the workings of Bitcoin"
+      }
+    ]
+  },
+  {
+    "questionKey": "DR-03",
+    "prompt": "Which of the following are characteristics of a cryptographically secure hash function?",
+    "markup": "Which of the following are characteristics of a cryptographically secure hash function?\n\n * A. Collisions are unlikely\n * B. Similar inputs produce similar outputs\n * C. Any hash is equally likely (uniformly distributed).\n * D. The content is recoverable from its hash",
+    "answer": "A and C",
+    "choices": [
+      "A and C",
+      "B and A",
+      "C and D",
+      "All of the above"
+    ],
+    "categories": [
+      "Crypto"
+    ]
   }
 ]
