@@ -1,292 +1,73 @@
 [
   {
-    "questionKey": "EXPRESS-201",
-    "prompt": "Which route matches the following:",
-    "markup": "`/api/a/:id`",
-    "answer": "/api/a/1",
-    "choices": ["/api/a/1", "/api/b/2", "/api/c/3", "/api/d"],
-    "choiceMarkups": ["`/api/a/1`", "`/api/a/2`", "`/api/a/3`", "`/api/a/4`"],
-    "categories": ["Node", "Express"],
-    "links": [
-      {
-        "href": "https://expressjs.com/en/guide/routing.html",
-        "text": "Express 4 Routing"
-      }
+    "questionKey": "DK-01",
+    "markup": "# What is bonking?",
+    "answer": "exercise fatigue",
+    "choices": [
+      "robot battle drill",
+      "part of the kombucha process",
+      "exercise fatigue",
+      "when your coworker bumps your chair"
+    ],
+    "categories": [
+      "Things Everyone should know"
     ]
   },
   {
-    "questionKey": "TB-01",
-    "prompt": "Cats or dogs?",
-    "answer": "cats",
-    "choices": ["cats", "dogs"]
-  },
-  {
-    "questionKey": "BOOTSTRAP-01",
-    "prompt": "Bootstrap is a:",
-    "answer": "CSS Framework",
+    "questionKey": "DK-02",
+    "markup": "# Quote 'Would you qualify that as a launch problem or a design problem?'",
+    "answer": "Real Genius",
     "choices": [
-      "Javascript Function",
-      "way to tweet",
-      "CSS Framework",
-      "piece of clothing"
+      "Armageddon",
+      "Real Genius",
+      "Superman",
+      "The Social Network"
     ],
-    "categories": ["CSS", "Bootstrap"],
-    "links": [
-      {
-        "href": "https://getbootstrap.com",
-        "text": "Bootstrap 3 (4 beta)"
-      }
+    "categories": [
+      "Movie"
     ]
   },
   {
-    "questionKey": "CSS-01",
-    "prompt": "Which is the correct way to link an external stylesheet?",
-    "answer": "<link rel=\"stylesheet\" href=\"mystyle.css\">",
+    "questionKey": "DK-03",
+    "markup": "# How did the muppets get away from the Frog Legs restaurant owner?",
+    "answer": "Animal took growth hormones",
     "choices": [
-      "<a href=\"mystyle.css\"></a>",
-      "<link rel=\"stylesheet\" href=\"mystyle.css\">",
-      "<style src=\"mystyle.css\">",
-      "<link type=\"css\" href=\"mystyle.css\">"
+      "Animal took growth hormones",
+      "Kermit angered miss piggy and she karate chopped them to freedom",
+      "They produced a successful hollywood movie",
+      "Actually kermit was eaten so it was a tragic ending"
     ],
-    "choiceMarkups": [
-      "`<a href=\"mystyle.css\"></a>`",
-      "`<link rel=\"stylesheet\" href=\"mystyle.css\">`",
-      "`<style src=\"mystyle.css\">`",
-      "`<link type=\"css\" href=\"mystyle.css\">`"
-    ],
-    "categories": ["CSS"]
-  },
-  {
-    "questionKey": "BS-02",
-    "prompt":
-      "It is literally possible to pull ones' self up by one's own boot straps",
-    "markup":
-      "![Boostraps](http://i2.wp.com/justlaurel.com/wp-content/uploads/2016/02/bootstraps.jpg)",
-    "answer": "false",
-    "choices": ["true", "false"],
-    "categories": ["random", "Bootstrap"]
-  },
-  {
-    "questionKey": "RANDOM-10",
-    "prompt": "JavaScript's creator spent this long creating it?",
-    "choices": ["10 hours", "10 days", "10 weeks", "10 months"],
-    "answer": "10 days",
-    "links": []
-  },
-  {
-    "prompt": "All of these are examples of ORMs except?",
-    "choices": [
-      "Express",
-      "Sequelize",
-      "A custom library taking callbacks",
-      "Mongoose"
-    ],
-    "answer": "Express",
-    "links": []
-  },
-  {
-    "prompt": "A package.json gains a dependency via?",
-    "choices": [
-      "npm init -y",
-      "npm install express",
-      "npm install -S express",
-      "npm blame"
-    ],
-    "answer": "npm install -S express",
-    "links": []
-  },
-  {
-    "prompt":
-      "All of these are reasons to render HTML on the server with Handlebars EXCEPT?",
-    "choices": [
-      "Search Engines (Google)",
-      "Requires higher-powered device to render the page",
-      "Faster initial load of content",
-      "Requires lower-powered device to render the page"
-    ],
-    "answer": "Requires higher-powered device to render the page",
-    "links": []
-  },
-  {
-    "prompt":
-      "Handlebars triple-mustache will allow HTML from your database into the page as-is?",
-    "choices": [
-      "Yay! Just what I need!",
-      "Yay! (Better look out for malicious user content)",
-      "False"
-    ],
-    "answer": "Yay! (Better look out for malicious user content)",
-    "links": [
-      {
-        "href": "https://www.veracode.com/security/xss",
-        "text": "Cross-Site Scripting Attacks"
-      }
+    "categories": [
+      "Movie"
     ]
   },
   {
-    "prompt": "Heroku will configure your app's database string via?",
+    "questionKey": "DK-04",
+    "markup": "# Is this a male or female banana slug? \n![](http://kennethadair.org/images/animalia/a_dolichophallus_scale.jpg)",
+    "answer": "both",
     "choices": [
-      "process.argv[2]",
-      "process.env.PORT",
-      "process.argv.JAWSDB_URL",
-      "process.env.JAWSDB_URL"
+      "male",
+      "female",
+      "both"
     ],
-    "choiceMarkups": [
-      "`process.argv[2]`",
-      "`process.env.PORT`",
-      "`process.argv.JAWSDB_URL`",
-      "`process.env.JAWSDB_URL`"
-    ],
-    "answer": "process.env.JAWSDB_URL",
-    "links": [
-      {
-        "href": "www.google.com",
-        "text": "LMGTFY"
-      }
+    "categories": [
+      "biology"
     ]
   },
   {
-    "prompt": "(3 % 2 === 1) ? 'YAY' : 'BOO' will evaluate to what?",
-    "choices": ["YAY", "'?'", "null", "NaN"],
-    "answer": "YAY",
-    "links": [
-      {
-        "href":
-          "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator",
-        "text": "The ternary (? :) operator on MDN"
-      }
-    ]
-  },
-  {
-    "questionKey": "CRYPTO-01",
-    "prompt": "The whitepaper which first described Bitcoin had which title?",
+    "questionKey": "DK-05",
+    "markup": "# How many engineers does it take to pass the salt?",
+    "answer": "Yes one of those above should be sufficient enough",
     "choices": [
-      "“Bitcoin: Takin' Your Money since 2007”",
-      "“Bitcoin: Wouldn't you like to know?”",
-      "“Bitcoin: A Peer-to-Peer Electronic Cash System”",
-      "“Bitcoin: A Ponzi Scheme for Suckers”"
+      "How much time do we have?",
+      "Given the current state of the infrastructure consisting of a table salt shaker and hand we could estimate a 1pt of effort to get the salt to someone across the table.",
+      "Is there actually salt?",
+      "First we must have a neural network that can predict the amount of effort required to pass the salt and then we will need a robot programed with a brand new language because all those current languages don't do it the way I want.",
+      "Are we sure they want salt?  What data do you have to prove that?",
+      "Yes one of those above should be sufficient enough"
     ],
-    "answer": "“Bitcoin: A Peer-to-Peer Electronic Cash System”",
-    "categories": ["Cryptocurrency"],
-    "links": [
-      {
-        "href": "https://bitcoin.org/bitcoin.pdf",
-        "text": "The original, 8 page PDF describing the workings of Bitcoin"
-      }
+    "categories": [
+      "DevHumor"
     ]
-  },
-  {
-    "questionKey": "CRYPTO-02",
-    "prompt": "A private key can be used to spend Bitcoin more than once.",
-    "choices": ["True", "False"],
-    "answer": "False",
-    "categories": ["Cryptocurrency"],
-    "explanation":
-      "Once an address has value moved from it, it is marked 'spent'. Any change from the transaction goes into a separate address, with its own distinct private key.",
-    "links": [
-      {
-        "href": "https://en.bitcoin.it/wiki/Private_key#Summary",
-        "text": "Once spent, a private key becomes worthless"
-      }
-    ]
-  },
-  {
-    "questionKey": "CRYPTO-07",
-    "prompt":
-      "Which is true of the relationships between public and private keys?",
-    "choices": [
-      "It is infeasible to create the public key from the private key.",
-      "It is infeasible to create the private key from the public key.",
-      "The public key is used to decrypt a message",
-      "The public key is used to sign a message (link it to a sender)."
-    ],
-    "answer": "It is infeasible to create the private key from the public key.",
-    "categories": ["Cryptocurrency", "CS"],
-    "explanation":
-      "The public key IS in fact deducible from the private key, and only the private key can be used to sign or decrypt.",
-    "links": [
-      {
-        "href":
-          "https://stackoverflow.com/questions/5244129/use-rsa-private-key-to-generate-public-key",
-        "text":
-          "How to generate a private key, and get its public key from it (StackOverflow)"
-      }
-    ]
-  },
-  {
-    "questionKey": "CRYPTO-08",
-    "prompt": "The balance of every Bitcoin address is publicly viewable.",
-    "choices": ["True", "False"],
-    "answer": "True",
-    "categories": ["Cryptocurrency"],
-    "explanation":
-      "Balances being publicly viewable is a design feature of Bitcoin, and has privacy implications, though the an address' owner is typically not known. This is possible because the address (public key) is safely sharable, not containing enough information to spend the money.",
-    "links": [
-      {
-        "href": "https://blockchain.info",
-        "text": "Blockchain Explorer (Blockchain.info)"
-      }
-    ]
-  },
-  {
-    "questionKey": "CRYPTO-09",
-    "prompt":
-      "Which steps will happen if you try and spend a bitcoin simultaneously on two different sides of the world?",
-    "choices": [
-      "Each vendor will get a confirmation that the spend was successful.",
-      "The two transaction end points will talk to each other to prevent the double-spend.",
-      "If each transaction becomes part of a block, the block with fewer confirmations will eventually be rejected.",
-      "The second transaction will immediately be declined."
-    ],
-    "answer":
-      "If each transaction becomes part of a block, the block with fewer confirmations will be rejected eventually.",
-    "categories": ["Cryptocurrency"],
-    "links": [
-      {
-        "href": "https://www.bitcoin.com/info/what-is-bitcoin-double-spending",
-        "text": "What is Bitcoin Double Spending? (bitcoin.com)"
-      }
-    ]
-  },
-  {
-    "questionKey": "CRYPTO-10",
-    "prompt":
-      "This Eastern nation told its citizens they must associate their real names with their bitcoin accounts, or incur large fines.",
-    "choices": ["China", "South Korea", "North Korea", "Japan"],
-    "answer": "South Korea",
-    "categories": ["Cryptocurrency"],
-    "links": [
-      {
-        "href":
-          "https://news.bitcoin.com/south-korea-crypto-traders-fines-new-system/?utm_source=news.bitcoin.com&utm_medium=widget&utm_campaign=News%20Widget",
-        "text":
-          "Crypto Traders Could Face Fines Under New System (news.bitcoin.com)"
-      }
-    ]
-  },
-  {
-    "questionKey": "CRYPTO-07",
-    "prompt": "'Cold storage' of bitcoin refers to:",
-    "answer": "Physically securing a printed paper wallet",
-    "choices": [
-      "Generating a new address at walletgenerator.net",
-      "Physically securing a printed paper wallet",
-      "Converting the coin to dollars, and putting them in a safe",
-      "Using an wallet application on your computer or mobile device"
-    ],
-    "categories": ["Cryptocurrency"]
-  },
-  {
-    "questionKey": "CRYPTO-200",
-    "prompt": "Which of the following are characteristics of a cryptographically secure hash function?",
-    "markup": "Which of the following are characteristics of a cryptographically secure hash function?\n\n * A. Collisions are unlikely\n * B. Similar inputs produce similar outputs\n * C. Any hash is equally likely (uniformly distributed).\n * D. The content is recoverable from its hash",
-    "answer": "A and C",
-    "choices": [
-      "A and C",
-      "B and A",
-      "C and D",
-      "All of the above"
-    ],
-    "categories": ["Cryptocurrency"]
   }
 ]
