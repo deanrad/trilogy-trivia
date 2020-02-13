@@ -50,7 +50,7 @@ class Student extends Component {
               <VoteButton
                 key={choice}
                 choice={choice}
-                choiceMarkup={choiceMarkups[i]}
+                choiceMarkup={choiceMarkups && choiceMarkups[i]}
                 myResponse={myResponse}
                 revealed={revealed}
                 realAnswer={answer}

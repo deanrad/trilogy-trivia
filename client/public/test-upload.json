@@ -6,16 +6,38 @@
         "choices": [
             "cats",
             "dogs"
+        ],
+        "categories": [
+            "Test"
         ]
     },
     {
         "questionKey": "TUP-02",
-        "prompt": "The Metal is:",
+        "markup": "The `Metal` is:",
         "answer": "🤘🏼",
         "choices": [
             "🥱",
             "🤘🏼",
             "🤮"
+        ],
+        "categories": [
+            "Test"
+        ]
+    },
+    {
+        "questionKey": "TUP-03",
+        "markup": "# What is this?\n![](https://piximus.net/media/23801/there-i-fixed-it-17-44.gif)",
+        "answer": "brilliant",
+        "choices": [
+            "crap",
+            "brilliant"
+        ],
+        "choiceMarkups": [
+            "*Crap*",
+            "_brilliant_"
+        ],
+        "categories": [
+            "Test"
         ]
     }
 ]
