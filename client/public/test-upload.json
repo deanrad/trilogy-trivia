@@ -7,5 +7,15 @@
             "cats",
             "dogs"
         ]
+    },
+    {
+        "questionKey": "TUP-02",
+        "prompt": "The Metal is:",
+        "answer": "🤘🏼",
+        "choices": [
+            "🥱",
+            "🤘🏼",
+            "🤮"
+        ]
     }
 ]

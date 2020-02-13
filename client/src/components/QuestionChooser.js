@@ -3,6 +3,7 @@ import axios from "axios";
 import Select from "react-select";
 import "react-select/dist/react-select.css";
 import intersect from "lodash.intersection";
+import eventCreators from "../store/actions"
 
 const allQuestionStyles = {
   border: "1px solid black",
@@ -74,7 +75,7 @@ export default class QuestionChooser extends React.Component {
     var fileread = new FileReader();
     fileread.onload = e => {
       const uploaded = JSON.parse(e.target.result);
-      this.setState({ selected: uploaded });
+      this.setState({ questions: uploaded, selected: uploaded });
     };
     fileread.readAsText(e.target.files[0]);
   };
@@ -85,7 +86,7 @@ export default class QuestionChooser extends React.Component {
   }
 
   render() {
-    let { questions = [] } = this.props;
+    let questions = this.state.questions || this.props.questions || [];
     let categories = this.props.categories;
     let options = Object.keys(categories)
       .sort()
