@@ -25,7 +25,7 @@ class Student extends Component {
       return <JoinForm {...this.props} />;
     }
 
-    if (!round.prompt) {
+    if (!round.prompt && !round.markup) {
       return (
         <div>
           <h1>Game over!</h1>
